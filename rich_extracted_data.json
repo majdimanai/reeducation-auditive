@@ -1,0 +1,314 @@
+[
+    {
+        "type": "text",
+        "value": "Les objets \u00e0 l\u2019\u00e9cole\u00a0:"
+    },
+    {
+        "type": "text",
+        "value": "\u0642\u0644\u0645"
+    },
+    {
+        "type": "image",
+        "path": "media/image1.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0631\u0637\u0627\u0628\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image2.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0637\u0628\u0627\u0634\u064a\u0631"
+    },
+    {
+        "type": "image",
+        "path": "media/image3.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0635\u0628\u0648\u0631\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image4.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0637\u0627\u0648\u0644\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image5.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0631\u0633\u064a"
+    },
+    {
+        "type": "image",
+        "path": "media/image6.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "Image en g\u00e9n\u00e9ral\u00a0:"
+    },
+    {
+        "type": "image",
+        "path": "media/image7.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "les parties du corps\u00a0:"
+    },
+    {
+        "type": "text",
+        "value": "\u0631\u0627\u0633"
+    },
+    {
+        "type": "image",
+        "path": "media/image8.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0627\u0642\u064a\u0646"
+    },
+    {
+        "type": "image",
+        "path": "media/image9.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image10.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0634\u0639\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0639\u064a\u0646\u064a\u0646"
+    },
+    {
+        "type": "image",
+        "path": "media/image11.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u062e\u0634\u0645"
+    },
+    {
+        "type": "image",
+        "path": "media/image12.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "Image en g\u00e9\u00e9nral\u00a0:"
+    },
+    {
+        "type": "image",
+        "path": "media/image13.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "les animaux\u00a0:"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0631\u062f\u0648\u0643"
+    },
+    {
+        "type": "image",
+        "path": "media/image14.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0639\u0635\u0641\u0648\u0631"
+    },
+    {
+        "type": "image",
+        "path": "media/image15.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0639\u0644\u0648\u0634"
+    },
+    {
+        "type": "image",
+        "path": "media/image16.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0630\u0628\u0627\u0646\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image17.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0632\u0631\u0627\u0641\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image18.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "Image en g\u00e9n\u00e9ral\u00a0:"
+    },
+    {
+        "type": "image",
+        "path": "media/image19.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "les v\u00eatements\u00a0:"
+    },
+    {
+        "type": "text",
+        "value": "\u0635\u0628\u0627\u0637"
+    },
+    {
+        "type": "image",
+        "path": "media/image20.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0644\u0633\u064a\u0637\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image21.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0645\u0631\u064a\u0648\u0644"
+    },
+    {
+        "type": "image",
+        "path": "media/image22.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0634\u0627\u0628\u0648"
+    },
+    {
+        "type": "image",
+        "path": "media/image23.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0631\u0648\u0627\u0644"
+    },
+    {
+        "type": "image",
+        "path": "media/image24.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "image en g\u00e9n\u00e9ral\u00a0:"
+    },
+    {
+        "type": "image",
+        "path": "media/image25.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "les objets \u00e0 la maison\u00a0:"
+    },
+    {
+        "type": "text",
+        "value": "\u0635\u0627\u0644\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image26.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0641\u0631\u0634"
+    },
+    {
+        "type": "image",
+        "path": "media/image27.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0648\u0632\u064a\u0646\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image28.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u062a\u0644\u0641\u0632\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image29.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0641\u0631\u064a\u062c\u064a\u062f\u0627\u0631"
+    },
+    {
+        "type": "image",
+        "path": "media/image30.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "Image en g\u00e9n\u00e9ral\u00a0:"
+    },
+    {
+        "type": "image",
+        "path": "media/image31.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "la nourriture\u00a0:"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0643\u0633\u064a"
+    },
+    {
+        "type": "image",
+        "path": "media/image32.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0645\u0642\u0631\u0648\u0646\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image33.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0644\u0628\u0644\u0627\u0628\u064a"
+    },
+    {
+        "type": "image",
+        "path": "media/image34.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0633\u0643\u0631\u0648\u062a"
+    },
+    {
+        "type": "image",
+        "path": "media/image35.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "Image en g\u00e9n\u00e9ral\u00a0:"
+    },
+    {
+        "type": "image",
+        "path": "media/image36.jpeg"
+    }
+]

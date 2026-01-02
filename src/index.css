@@ -1,0 +1,388 @@
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Bubblegum+Sans&display=swap');
+
+:root {
+  --primary: #fbbf24;
+  /* SpongeBob Golden Yellow */
+  --primary-dark: #d97706;
+  --secondary: #38bdf8;
+  /* Ocean Blue */
+  --secondary-dark: #0284c7;
+  --accent: #f472b6;
+  /* Patrick Pink */
+  --accent-dark: #db2777;
+  --danger: #ef4444;
+  --background: #dbeafe;
+  --surface: #ffffff;
+  --text-main: #1e3a8a;
+  --radius: 24px;
+  --shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.4);
+  --font-heading: 'Fredoka One', cursive;
+  --font-body: 'Bubblegum Sans', cursive;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--background);
+  background-image: url('/src/assets/images/bg_underwater.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  /* Fluid font size */
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Bubbles Animation */
+.bubbles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: rise infinite ease-in;
+}
+
+.bubble:nth-child(1) {
+  width: 40px;
+  height: 40px;
+  left: 10%;
+  animation-duration: 8s;
+}
+
+.bubble:nth-child(2) {
+  width: 20px;
+  height: 20px;
+  left: 20%;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+  width: 50px;
+  height: 50px;
+  left: 35%;
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(4) {
+  width: 80px;
+  height: 80px;
+  left: 50%;
+  animation-duration: 11s;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(5) {
+  width: 35px;
+  height: 35px;
+  left: 55%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(6) {
+  width: 45px;
+  height: 45px;
+  left: 65%;
+  animation-duration: 8s;
+  animation-delay: 3s;
+}
+
+.bubble:nth-child(7) {
+  width: 25px;
+  height: 25px;
+  left: 70%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(8) {
+  width: 80px;
+  height: 80px;
+  left: 80%;
+  animation-duration: 6s;
+  animation-delay: 4s;
+}
+
+.bubble:nth-child(9) {
+  width: 15px;
+  height: 15px;
+  left: 70%;
+  animation-duration: 5s;
+  animation-delay: 5s;
+}
+
+.bubble:nth-child(10) {
+  width: 90px;
+  height: 90px;
+  left: 25%;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+
+@keyframes rise {
+  0% {
+    bottom: -100px;
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(50px);
+  }
+
+  100% {
+    bottom: 1080px;
+    transform: translateX(-50px);
+  }
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-heading);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.85);
+  /* More transparent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+  /* Glass edge */
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+}
+
+/* 3D Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-decoration: none;
+  margin: 0.75rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: all 0.1s;
+  text-transform: uppercase;
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 0;
+  /* Removing bottom border on press */
+}
+
+/* Primary Button (Yellow) */
+.btn-primary {
+  background-color: var(--primary);
+  color: #7c2d12;
+  box-shadow: 0 6px 0 var(--primary-dark), 0 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:active {
+  box-shadow: 0 0 0 var(--primary-dark), inset 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary Button (Blue) */
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+  box-shadow: 0 6px 0 var(--secondary-dark), 0 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary:active {
+  box-shadow: 0 0 0 var(--secondary-dark), inset 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Game Option Button (White/Surface) */
+.btn-option {
+  background-color: var(--surface);
+  color: var(--text-main);
+  border: 2px solid #e0f2fe;
+  box-shadow: 0 6px 0 #cbd5e1, 0 8px 10px rgba(0, 0, 0, 0.1);
+  font-size: 2rem;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+}
+
+.btn-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #cbd5e1, 0 12px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-option:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 #cbd5e1, inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Feedback States */
+.btn-correct {
+  background-color: #86efac;
+  color: #14532d;
+  box-shadow: 0 6px 0 #22c55e, 0 10px 15px rgba(34, 197, 94, 0.3);
+  border: none;
+  animation: pulse 0.5s;
+}
+
+.btn-incorrect {
+  background-color: #fecaca;
+  color: #7f1d1d;
+  box-shadow: 0 6px 0 #ef4444, 0 10px 15px rgba(239, 68, 68, 0.3);
+  border: none;
+  animation: shake 0.4s;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: #ffde0eb4;
+  /* Stroke effect */
+  -webkit-text-stroke: 2px #b45309;
+  text-shadow:
+    4px 4px 0px #b45309,
+    8px 8px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Global Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+    /* Smaller base font */
+  }
+
+  .container {
+    padding: 0.5rem;
+    min-height: 100vh;
+    justify-content: flex-start;
+    /* Start from top on mobile to avoid centering issues if tall */
+    padding-top: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 16px;
+  }
+
+  /* Make buttons smaller and stackable */
+  .btn {
+    font-size: 1.1rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    /* Full width on mobile usually better for touch */
+    max-width: 100%;
+    margin: 0.5rem 0;
+    /* Align items better */
+    display: flex;
+  }
+
+  .title {
+    font-size: clamp(2rem, 8vw, 3rem);
+    /* Prevents title from breaking layout */
+    word-wrap: break-word;
+  }
+
+  /* Adjust specific button types if needed */
+  .btn-option {
+    font-size: 1.25rem;
+    padding: 1rem;
+    min-height: auto;
+  }
+
+  /* Ensure GamePath doesn't overflow */
+  .container {
+    overflow-x: hidden;
+    /* Safety */
+  }
+}

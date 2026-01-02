@@ -1,0 +1,562 @@
+[
+    {
+        "type": "image",
+        "path": "media/image1.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image2.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0641\u0645"
+    },
+    {
+        "type": "text",
+        "value": "\u0641\u0645"
+    },
+    {
+        "type": "text",
+        "value": "\u0648\u0630\u0646"
+    },
+    {
+        "type": "text",
+        "value": "\u0648\u0630\u0646"
+    },
+    {
+        "type": "image",
+        "path": "media/image3.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image4.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image5.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u062d\u0648\u0627\u062c\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u062d\u0648\u0627\u062c\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u064a\u062f"
+    },
+    {
+        "type": "text",
+        "value": "\u064a\u062f"
+    },
+    {
+        "type": "text",
+        "value": "\u062e\u0634\u0645"
+    },
+    {
+        "type": "text",
+        "value": "\u062e\u0634\u0645"
+    },
+    {
+        "type": "image",
+        "path": "media/image6.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image7.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image5.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0634\u0639\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0634\u0639\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0627\u0642"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0627\u0642"
+    },
+    {
+        "type": "text",
+        "value": "\u0639\u064a\u0646"
+    },
+    {
+        "type": "text",
+        "value": "\u0639\u064a\u0646"
+    },
+    {
+        "type": "image",
+        "path": "media/image8.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image9.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0635\u0644"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0635\u0644"
+    },
+    {
+        "type": "image",
+        "path": "media/image10.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0641\u0644\u0641\u0644"
+    },
+    {
+        "type": "text",
+        "value": "\u0641\u0644\u0641\u0644"
+    },
+    {
+        "type": "text",
+        "value": "\u0637\u0645\u0627\u0637\u0645"
+    },
+    {
+        "type": "text",
+        "value": "\u0637\u0645\u0627\u0637\u0645"
+    },
+    {
+        "type": "image",
+        "path": "media/image11.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image12.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0641\u0646\u0627\u0631\u064a\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0641\u0646\u0627\u0631\u064a\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0637\u0627\u0637\u0627"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0637\u0627\u0637\u0627"
+    },
+    {
+        "type": "image",
+        "path": "media/image13.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image14.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u062a\u0641\u0627\u062d"
+    },
+    {
+        "type": "text",
+        "value": "\u062a\u0641\u0627\u062d"
+    },
+    {
+        "type": "text",
+        "value": "\u062a\u0648\u062a"
+    },
+    {
+        "type": "text",
+        "value": "\u062a\u0648\u062a"
+    },
+    {
+        "type": "image",
+        "path": "media/image15.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image16.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u0646\u0632\u0627\u0633"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u0646\u0632\u0627\u0633"
+    },
+    {
+        "type": "text",
+        "value": "\u062f\u0644\u0627\u0639"
+    },
+    {
+        "type": "text",
+        "value": "\u062f\u0644\u0627\u0639"
+    },
+    {
+        "type": "image",
+        "path": "media/image17.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image18.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0646\u0627\u0646"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0646\u0627\u0646"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0631\u062f\u06a4\u0627\u0646"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0631\u062f\u06a4\u0627\u0646"
+    },
+    {
+        "type": "image",
+        "path": "media/image19.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image20.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u062d\u0648\u062a\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u062d\u0648\u062a\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0642\u0637\u0648\u0633\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0642\u0637\u0648\u0633\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image21.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image22.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image23.png"
+    },
+    {
+        "type": "text",
+        "value": "\u062f\u062c\u0627\u062c\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u062f\u062c\u0627\u062c\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0644\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0644\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u0631\u0646\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u0631\u0646\u0628"
+    },
+    {
+        "type": "image",
+        "path": "media/image24.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image25.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image26.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u06a8"
+    },
+    {
+        "type": "text",
+        "value": "\u0631\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u06a8"
+    },
+    {
+        "type": "text",
+        "value": "\u0631\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0637\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0637\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image27.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image28.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0645\u064a\u062a\u0631\u0648"
+    },
+    {
+        "type": "text",
+        "value": "\u0645\u064a\u062a\u0631\u0648"
+    },
+    {
+        "type": "text",
+        "value": "\u0637\u064a\u0627\u0631\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0637\u064a\u0627\u0631\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image29.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image30.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0631\u0647\u0628\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0631\u0647\u0628\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image31.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0633\u0643\u0644\u0627\u062a"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0633\u0643\u0644\u0627\u062a"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0627\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0627\u0631"
+    },
+    {
+        "type": "image",
+        "path": "media/image32.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image33.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0627\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u0628\u0627\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0631\u0633\u064a"
+    },
+    {
+        "type": "text",
+        "value": "\u0643\u0631\u0633\u064a"
+    },
+    {
+        "type": "image",
+        "path": "media/image34.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image35.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u0637\u0627\u0648\u0644\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0637\u0627\u0648\u0644\u0629"
+    },
+    {
+        "type": "image",
+        "path": "media/image36.jpeg"
+    },
+    {
+        "type": "text",
+        "value": "\u063a\u0633\u0627\u0644\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u063a\u0633\u0627\u0644\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0631\u064a\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0633\u0631\u064a\u0631"
+    },
+    {
+        "type": "image",
+        "path": "media/image37.png"
+    },
+    {
+        "type": "image",
+        "path": "media/image38.png"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u0635\u0641\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u0635\u0641\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u0632\u0631\u0642"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u0632\u0631\u0642"
+    },
+    {
+        "type": "image",
+        "path": "media/image39.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image40.png"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u062d\u0645\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u062d\u0645\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u062e\u0636\u0631"
+    },
+    {
+        "type": "text",
+        "value": "\u0623\u062e\u0636\u0631"
+    },
+    {
+        "type": "image",
+        "path": "media/image41.jpeg"
+    },
+    {
+        "type": "image",
+        "path": "media/image42.png"
+    },
+    {
+        "type": "image",
+        "path": "media/image43.png"
+    },
+    {
+        "type": "image",
+        "path": "media/image44.png"
+    },
+    {
+        "type": "image",
+        "path": "media/image45.png"
+    },
+    {
+        "type": "text",
+        "value": "\u064a\u0627\u063a\u0631\u0637\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u064a\u0627\u063a\u0631\u0637\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0639\u0638\u0645"
+    },
+    {
+        "type": "text",
+        "value": "\u0639\u0638\u0645"
+    },
+    {
+        "type": "text",
+        "value": "\u062d\u0644\u064a\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u062d\u0644\u064a\u0628"
+    },
+    {
+        "type": "text",
+        "value": "\u062e\u0628\u0632"
+    },
+    {
+        "type": "text",
+        "value": "\u062e\u0628\u0632"
+    },
+    {
+        "type": "text",
+        "value": "\u0632\u0628\u062f\u0629"
+    },
+    {
+        "type": "text",
+        "value": "\u0632\u0628\u062f\u0629"
+    }
+]
