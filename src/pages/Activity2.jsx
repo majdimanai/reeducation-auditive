@@ -107,7 +107,7 @@ const Activity2 = () => {
         setIsPlaying(true);
 
         const audioId = currentItem.id.replace(/^[sr]_/, '');
-        const audioPath = `/audio/words/${audioId}.mp3`;
+        const audioPath = `${import.meta.env.BASE_URL}audio/words/${audioId}.mp3`;
         const wordAudio = new Audio(audioPath);
 
         // Apply Pitch Shift if Male selected (Simulation)
@@ -192,8 +192,8 @@ const Activity2 = () => {
             <div className="bubbles">
                 {Array.from({ length: 10 }).map((_, i) => <div key={i} className="bubble"></div>)}
             </div>
-            <audio ref={noiseWhiteRef} loop src="/audio/noise_white.webm" />
-            <audio ref={noiseBgRef} loop src="/audio/noise_continu.webm" />
+            <audio ref={noiseWhiteRef} loop src={`${import.meta.env.BASE_URL}audio/noise_white.webm`} />
+            <audio ref={noiseBgRef} loop src={`${import.meta.env.BASE_URL}audio/noise_continu.webm`} />
 
             {/* DIFFICULTY CONTROL REMOVED */}
 
@@ -311,7 +311,7 @@ const Activity2 = () => {
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexDirection: 'column', color: 'white'
                 }}>
-                    <img src="/src/assets/images/patrick_sad.jpg" alt="Patrick Sad" style={{ height: '250px', marginBottom: '1rem', borderRadius: '1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }} />
+                    <img src={`${import.meta.env.BASE_URL}assets/images/story/patrick_sad.jpg`} alt="Patrick Sad" style={{ height: '250px', marginBottom: '1rem', borderRadius: '1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }} />
                     <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
                         Patrick a besoin de toi !
                     </h1>
@@ -337,7 +337,7 @@ const Activity2 = () => {
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexDirection: 'column'
                 }}>
-                    <img src="/src/assets/images/reunion.jpg" alt="Friends Reunited" style={{ height: '300px', marginBottom: '1rem', borderRadius: '1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }} />
+                    <img src={`${import.meta.env.BASE_URL}assets/images/story/reunion.jpg`} alt="Friends Reunited" style={{ height: '300px', marginBottom: '1rem', borderRadius: '1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }} />
                     <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '4rem', color: 'var(--secondary)', marginBottom: '1rem' }}>
                         BRAVO !
                     </h1>
@@ -425,16 +425,16 @@ const Activity2 = () => {
 
                                 // Image Mapping
                                 const CATEGORY_IMAGES = {
-                                    'maison': '/assets/images/categories/maison.jpeg',
-                                    'alimentation': '/assets/images/categories/alimentation.jpeg',
-                                    'animaux': '/assets/images/categories/corps.jpeg',
-                                    'fruits': '/assets/images/categories/fruits.jpeg',
-                                    'legumes': '/assets/images/categories/legumes.jpeg',
-                                    'corps': '/assets/images/categories/animaux.jpeg',
-                                    'transport': '/assets/images/categories/transport.jpeg',
-                                    // 'ecole': '/assets/images/categories/ecole.jpeg', // Fallback to emoji
-                                    'vetements': '/assets/images/categories/vetements.jpeg',
-                                    'couleurs': '/assets/images/categories/couleurs.jpeg',
+                                    'maison': `${import.meta.env.BASE_URL}assets/images/categories/maison.jpeg`,
+                                    'alimentation': `${import.meta.env.BASE_URL}assets/images/categories/alimentation.jpeg`,
+                                    'animaux': `${import.meta.env.BASE_URL}assets/images/categories/corps.jpeg`,
+                                    'fruits': `${import.meta.env.BASE_URL}assets/images/categories/fruits.jpeg`,
+                                    'legumes': `${import.meta.env.BASE_URL}assets/images/categories/legumes.jpeg`,
+                                    'corps': `${import.meta.env.BASE_URL}assets/images/categories/animaux.jpeg`,
+                                    'transport': `${import.meta.env.BASE_URL}assets/images/categories/transport.jpeg`,
+                                    // 'ecole': `${import.meta.env.BASE_URL}assets/images/categories/ecole.jpeg`, // Fallback to emoji
+                                    'vetements': `${import.meta.env.BASE_URL}assets/images/categories/vetements.jpeg`,
+                                    'couleurs': `${import.meta.env.BASE_URL}assets/images/categories/couleurs.jpeg`,
                                 };
                                 const imageSrc = CATEGORY_IMAGES[opt.id];
 

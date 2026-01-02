@@ -107,7 +107,7 @@ const GamePath = ({ totalSteps = 10, currentStep, stars = [] }) => {
                 pointerEvents: 'none'
             }}>
                 <img
-                    src="/src/assets/images/spongebob_fixed.png"
+                    src={`${import.meta.env.BASE_URL}assets/images/spongebob_fixed.png`}
                     alt="Player"
                     style={{
                         width: '100%', height: '100%', objectFit: 'contain',

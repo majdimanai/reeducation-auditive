@@ -77,7 +77,7 @@ const ConfigPage = () => {
                             value={settings.contrast}
                             onChange={(e) => setSettings({ ...settings, contrast: e.target.value })}
                         >
-                            {settings.vocabLevel === 'base' ? (
+                            {settings.vocabLevel === 'docx_simple' ? (
                                 <>
                                     <option value="b-m">/b/ vs /m/</option>
                                     <option value="t-d">/t/ vs /d/</option>

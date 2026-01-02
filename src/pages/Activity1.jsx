@@ -94,7 +94,7 @@ const Activity1 = () => {
         }
 
         // Try pre-generated audio
-        const audioPath = `/audio/words/${currentItem.id}.mp3`;
+        const audioPath = `${import.meta.env.BASE_URL}audio/words/${currentItem.id}.mp3`;
         const wordAudio = new Audio(audioPath);
 
         // Apply Pitch Shift if Male
@@ -180,8 +180,8 @@ const Activity1 = () => {
             </div>
 
             {/* Audio Elements with Refs - Public Path */}
-            <audio ref={noiseWhiteRef} loop src="/audio/noise_white.webm" />
-            <audio ref={noiseBgRef} loop src="/audio/noise_continu.webm" />
+            <audio ref={noiseWhiteRef} loop src={`${import.meta.env.BASE_URL}audio/noise_white.webm`} />
+            <audio ref={noiseBgRef} loop src={`${import.meta.env.BASE_URL}audio/noise_continu.webm`} />
 
             {/* NOISE CONTROL PANEL */}
             {/* NOISE CONTROL PANEL (Collapsible Top-Right) */}
@@ -266,7 +266,7 @@ const Activity1 = () => {
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexDirection: 'column', color: 'white'
                 }}>
-                    <img src="/src/assets/images/patrick_sad.jpg" alt="Patrick Sad" style={{ height: '250px', marginBottom: '1rem', borderRadius: '1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }} />
+                    <img src={`${import.meta.env.BASE_URL}assets/images/story/patrick_sad.jpg`} alt="Patrick Sad" style={{ height: '250px', marginBottom: '1rem', borderRadius: '1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }} />
                     <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
                         Patrick a besoin de toi !
                     </h1>
@@ -323,7 +323,7 @@ const Activity1 = () => {
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexDirection: 'column'
                 }}>
-                    <img src="/src/assets/images/reunion.jpg" alt="Friends Reunited" style={{ height: '300px', marginBottom: '1rem', borderRadius: '1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }} />
+                    <img src={`${import.meta.env.BASE_URL}assets/images/story/reunion.jpg`} alt="Friends Reunited" style={{ height: '300px', marginBottom: '1rem', borderRadius: '1rem', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }} />
                     <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '4rem', color: 'var(--secondary)', marginBottom: '1rem' }}>
                         BRAVO !
                     </h1>

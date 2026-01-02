@@ -21,9 +21,9 @@ const ImageVerifier = () => {
                             <h3>Image {num}</h3>
                             <div style={{ position: 'relative', height: '120px' }}>
                                 {/* Attempt to load multiple extensions, only one will show */}
-                                <img src={`/assets/images/raw/image${num}.jpeg`} style={{ maxWidth: '100%', maxHeight: '100%', display: 'block', margin: '0 auto' }} onError={(e) => e.target.style.display = 'none'} />
-                                <img src={`/assets/images/raw/image${num}.jpg`} style={{ maxWidth: '100%', maxHeight: '100%', display: 'block', margin: '0 auto', position: 'absolute', top: 0, left: 0, right: 0 }} onError={(e) => e.target.style.display = 'none'} />
-                                <img src={`/assets/images/raw/image${num}.png`} style={{ maxWidth: '100%', maxHeight: '100%', display: 'block', margin: '0 auto', position: 'absolute', top: 0, left: 0, right: 0 }} onError={(e) => e.target.style.display = 'none'} />
+                                <img src={`${import.meta.env.BASE_URL}assets/images/raw/image${num}.jpeg`} style={{ maxWidth: '100%', maxHeight: '100%', display: 'block', margin: '0 auto' }} onError={(e) => e.target.style.display = 'none'} />
+                                <img src={`${import.meta.env.BASE_URL}assets/images/raw/image${num}.jpg`} style={{ maxWidth: '100%', maxHeight: '100%', display: 'block', margin: '0 auto', position: 'absolute', top: 0, left: 0, right: 0 }} onError={(e) => e.target.style.display = 'none'} />
+                                <img src={`${import.meta.env.BASE_URL}assets/images/raw/image${num}.png`} style={{ maxWidth: '100%', maxHeight: '100%', display: 'block', margin: '0 auto', position: 'absolute', top: 0, left: 0, right: 0 }} onError={(e) => e.target.style.display = 'none'} />
                             </div>
                         </div>
                     );
