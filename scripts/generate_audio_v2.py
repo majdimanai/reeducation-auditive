@@ -2,9 +2,8 @@ import os
 import asyncio
 import edge_tts
 
-# Vocabulary Data
 VOCAB_LIST = [
-    # Discrimination Base
+
     {'id': 'd_b_1', 'text': 'باب'},
     {'id': 'd_b_2', 'text': 'بابا'},
     {'id': 'd_b_3', 'text': 'بطة'},
@@ -25,7 +24,7 @@ VOCAB_LIST = [
     {'id': 'd_m_8', 'text': 'مفتاح'},
     {'id': 'd_m_9', 'text': 'مخدة'},
     {'id': 'd_m_10', 'text': 'معجون'},
-    # Discrimination T-D
+
     {'id': 'd_t_1', 'text': 'تفاح'},
     {'id': 'd_t_2', 'text': 'تاكل'},
     {'id': 'd_t_3', 'text': 'تلفزة'},
@@ -46,7 +45,7 @@ VOCAB_LIST = [
     {'id': 'd_d_8', 'text': 'درجيحة'},
     {'id': 'd_d_9', 'text': 'دودة'},
     {'id': 'd_d_10', 'text': 'دروج'},
-    # Categorization Base
+
     {'id': 'cat_b_anim_1', 'text': 'كلب'},
     {'id': 'cat_b_anim_2', 'text': 'قطوسة'},
     {'id': 'cat_b_anim_6', 'text': 'حوتة'},
@@ -83,7 +82,7 @@ VOCAB_LIST = [
     {'id': 'cat_b_food_3', 'text': 'زبدة'},
     {'id': 'cat_b_food_4', 'text': 'ياغرطة'},
     {'id': 'cat_b_food_5', 'text': 'خبز'},
-    # Rich
+
     {'id': 'cat_r_food_1', 'text': 'كسكروت'},
     {'id': 'cat_r_food_2', 'text': 'كسكسي'},
     {'id': 'cat_r_food_3', 'text': 'مقرونة'},
@@ -94,12 +93,11 @@ VOCAB_LIST = [
     {'id': 'cat_r_clo_3', 'text': 'مريول'},
     {'id': 'cat_r_clo_4', 'text': 'جوارب'},
     {'id': 'cat_r_clo_5', 'text': 'حذاء'},
-    {'id': 'cat_r_anim_1', 'text': 'غزالة'},
     {'id': 'cat_r_anim_2', 'text': 'عصفور'},
     {'id': 'cat_r_anim_3', 'text': 'ذبانة'},
     {'id': 'cat_r_anim_4', 'text': 'علوش'},
     {'id': 'cat_r_anim_5', 'text': 'سردوك'},
-    {'id': 'cat_r_sch_1', 'text': 'سبورة'},
+    {'id': 'cat_r_sch_1', 'text': 'صبورة'},
     {'id': 'cat_r_sch_2', 'text': 'طباشير'},
     {'id': 'cat_r_sch_3', 'text': 'محفظة'},
     {'id': 'cat_r_sch_4', 'text': 'قلم'},
@@ -114,14 +112,13 @@ VOICE_MALE = "ar-SA-HamedNeural"
 
 async def generate():
     for item in VOCAB_LIST:
-        # Female
+
         path_f = os.path.join(OUTPUT_DIR, f"{item['id']}_female.mp3")
         if not os.path.exists(path_f):
             print(f"Generating Female: {item['text']}")
             communicate = edge_tts.Communicate(item['text'], VOICE_FEMALE)
             await communicate.save(path_f)
-        
-        # Male
+
         path_m = os.path.join(OUTPUT_DIR, f"{item['id']}_male.mp3")
         if not os.path.exists(path_m):
             print(f"Generating Male: {item['text']}")

@@ -9,7 +9,7 @@ const Home = () => {
                 Bienvenue ! Choisissez une activité pour commencer.
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', maxWidth: '1100px', margin: '0 auto' }}>
                 <Link to="/config/1" className="card" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <h2 style={{ color: 'var(--primary)', marginTop: 0 }}>Activite 1</h2>
                     <p>Discrimination Phonémique</p>

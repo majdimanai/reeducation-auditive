@@ -4,11 +4,11 @@ const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
     const [config, setConfig] = useState({
-        activity: null, // 1 or 2
-        vocabularyLevel: 'base', // 'base' or 'rich'
+        activity: null,
+        vocabularyLevel: 'base',
         noise: false,
-        noiseType: 'white', // 'white', 'background', 'speech'
-        contrast: null, // e.g., 'b-m' for Act 1
+        noiseType: 'white',
+        contrast: null,
     });
 
     const [score, setScore] = useState(0);

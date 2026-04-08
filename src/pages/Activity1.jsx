@@ -1,37 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { useGame } from '../context/GameContext';
 import { VOCABULARY } from '../data/vocabulary';
+import itemsImages from '../data/items_images.json';
 import GamePath from '../components/GamePath';
 import { useNavigate } from 'react-router-dom';
-import { Volume2, AlertCircle, CheckCircle, VolumeX, Volume1, Plus, Minus, Settings } from 'lucide-react';
+import { Volume2, AlertCircle, CheckCircle, VolumeX, Volume1, Plus, Minus, Settings, XCircle } from 'lucide-react';
 
 const Activity1 = () => {
     const { config, setScore, score } = useGame();
     const navigate = useNavigate();
 
-    // Game Logic State
     const [items, setItems] = useState([]);
     const [currentStep, setCurrentStep] = useState(0);
-    const [feedback, setFeedback] = useState(null); // 'correct', 'incorrect'
+    const [feedback, setFeedback] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    // Star System State
-    const [attempts, setAttempts] = useState(0); // Track attempts for current item
-    const [stars, setStars] = useState([]); // Array of booleans [true, false, true...]
+    const [attempts, setAttempts] = useState(0);
+    const [stars, setStars] = useState([]);
 
-
-    // Noise State
-    const [noiseVolume, setNoiseVolume] = useState(0); // 0 to 1
-    const [noiseType, setNoiseType] = useState('background'); // 'background' or 'white'
+    const [noiseVolume, setNoiseVolume] = useState(0);
+    const [noiseType, setNoiseType] = useState('background');
     const [showSettings, setShowSettings] = useState(false);
 
-    // Game State: 'intro' | 'playing' | 'score_reveal' | 'won'
     const [gameState, setGameState] = useState('intro');
 
-    // Initialize Game
     useEffect(() => {
         if (!config.contrast) {
-            // Fallback if no config, redirect
+
             navigate('/');
             return;
         }
@@ -39,36 +34,33 @@ const Activity1 = () => {
         const contrastData = VOCABULARY.discrimination.base[config.contrast] || VOCABULARY.discrimination.rich[config.contrast];
         if (!contrastData) return;
 
-        // Get all words
         const allWords = contrastData.words;
-        // Shuffle and pick 10
+
         const shuffled = [...allWords].sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, 10); // STRICT LIMIT 10
+        const selected = shuffled.slice(0, 10);
         setItems(selected);
     }, [config, navigate]);
 
     const currentItem = items[currentStep];
     const contrastData = config.contrast ? (VOCABULARY.discrimination.base[config.contrast] || VOCABULARY.discrimination.rich[config.contrast]) : null;
 
-    // Audio Refs
     const noiseWhiteRef = React.useRef(null);
     const noiseBgRef = React.useRef(null);
+    const audioInstanceRef = React.useRef(null); // Reference to current playing word audio
     const [needsInteraction, setNeedsInteraction] = useState(false);
 
-    // Audio Control Effect
     useEffect(() => {
         const bgAudio = noiseBgRef.current;
         const whiteAudio = noiseWhiteRef.current;
 
         if (!bgAudio || !whiteAudio) return;
 
-        // Pause all first
         bgAudio.pause();
         whiteAudio.pause();
 
         if (noiseVolume > 0) {
             const activeAudio = noiseType === 'background' ? bgAudio : whiteAudio;
-            // Background noise is naturally louder, so we scale it down a bit more
+
             const baseVol = noiseType === 'background' ? 0.05 : 0.3;
             activeAudio.volume = baseVol * noiseVolume;
 
@@ -77,15 +69,23 @@ const Activity1 = () => {
     }, [noiseVolume, noiseType]);
 
     const handleUserStart = () => {
-        // Just start the game, audio is now user-controlled
+
         setGameState('playing');
     };
 
     const playSound = React.useCallback(() => {
         if (!currentItem || gameState !== 'playing') return;
+
+        // Stop any currently playing audio instance
+        if (audioInstanceRef.current) {
+            audioInstanceRef.current.pause();
+            audioInstanceRef.current.currentTime = 0;
+            audioInstanceRef.current = null;
+        }
+        window.speechSynthesis.cancel();
+
         setIsPlaying(true);
 
-        // Ensure BG audio is playing if volume > 0
         if (noiseVolume > 0) {
             const activeAudio = noiseType === 'background' ? noiseBgRef.current : noiseWhiteRef.current;
             if (activeAudio && activeAudio.paused) {
@@ -93,26 +93,32 @@ const Activity1 = () => {
             }
         }
 
-        // Try pre-generated audio
         const audioPath = `${import.meta.env.BASE_URL}audio/words/${currentItem.id}.mp3`;
         const wordAudio = new Audio(audioPath);
+        audioInstanceRef.current = wordAudio; // Track this instance
 
-        // Apply Pitch Shift if Male
         if (config.voiceGender === 'male') {
             wordAudio.playbackRate = 0.85;
             wordAudio.preservesPitch = false;
         }
 
-        wordAudio.onended = () => setIsPlaying(false);
+        wordAudio.onended = () => {
+            if (audioInstanceRef.current === wordAudio) setIsPlaying(false);
+        };
         wordAudio.onerror = () => {
             console.log("File audio missing, using TTS fallback");
-            // TTS Fallback
+
             const u = new SpeechSynthesisUtterance(currentItem.label);
             u.lang = 'ar-SA';
             u.rate = config.voiceGender === 'male' ? 0.7 : 0.9;
             u.pitch = config.voiceGender === 'male' ? 0.6 : 1.1;
 
-            u.onend = () => setIsPlaying(false);
+            u.onstart = () => {
+                if (audioInstanceRef.current === wordAudio) setIsPlaying(true);
+            };
+            u.onend = () => {
+                if (audioInstanceRef.current === wordAudio) setIsPlaying(false);
+            };
             window.speechSynthesis.speak(u);
         };
 
@@ -120,13 +126,11 @@ const Activity1 = () => {
             console.log("Audio play failed, falling back:", e);
             wordAudio.onerror();
         });
-    }, [currentItem, config, gameState]);
+    }, [currentItem, config, gameState, noiseVolume, noiseType]);
 
-    // Auto-Repeat Audio Loop (5s)
     useEffect(() => {
         if (gameState !== 'playing' || !currentItem) return;
 
-        // Initial Play
         playSound();
 
         const interval = setInterval(() => {
@@ -137,37 +141,46 @@ const Activity1 = () => {
     }, [playSound, currentItem, gameState]);
 
     const handleChoice = (phoneme) => {
-        if (feedback === 'correct') return; // already done
+        if (feedback === 'correct') return;
 
-        // Increment attempts on every click
         setAttempts(a => a + 1);
 
         if (phoneme === currentItem.phoneme) {
-            // Correct
+
             const isFirstTry = attempts === 0;
 
-            // Add star if first try
             setStars(prev => [...prev, isFirstTry]);
 
-            // Score only updates if it's a star (per user request: total score is sum of stars)
             if (isFirstTry) {
                 setScore(s => s + 1);
             }
 
             setFeedback('correct');
 
+            // Stop current audio immediately on correct choice
+            if (audioInstanceRef.current) {
+                audioInstanceRef.current.pause();
+                audioInstanceRef.current.currentTime = 0;
+                audioInstanceRef.current = null;
+            }
+            window.speechSynthesis.cancel();
+            setIsPlaying(false);
+
             setTimeout(() => {
                 if (currentStep < items.length - 1) {
                     setCurrentStep(c => c + 1);
                     setFeedback(null);
-                    setAttempts(0); // Reset for next
+                    setAttempts(0);
                 } else {
-                    setGameState('score_reveal'); // Show score first, then story
+                    setGameState('score_reveal');
                 }
             }, 1500);
         } else {
-            // Incorrect
+
             setFeedback('incorrect');
+            setTimeout(() => {
+                setFeedback(null);
+            }, 1000);
         }
     };
 
@@ -179,20 +192,20 @@ const Activity1 = () => {
                 {Array.from({ length: 10 }).map((_, i) => <div key={i} className="bubble"></div>)}
             </div>
 
-            {/* Audio Elements with Refs - Public Path */}
-            <audio ref={noiseWhiteRef} loop src={`${import.meta.env.BASE_URL}audio/noise_white.webm`} />
-            <audio ref={noiseBgRef} loop src={`${import.meta.env.BASE_URL}audio/noise_continu.webm`} />
+            { }
+            <audio ref={noiseWhiteRef} loop src={`${import.meta.env.BASE_URL}audio/noise_white.mp3`} />
+            <audio ref={noiseBgRef} loop src={`${import.meta.env.BASE_URL}audio/noise_continu.mp3`} />
 
-            {/* NOISE CONTROL PANEL */}
-            {/* NOISE CONTROL PANEL (Collapsible Top-Right) */}
+            { }
+            { }
             {gameState !== 'intro' && (
                 <>
-                    {/* Toggle Button */}
+                    { }
                     <button
                         className="btn"
                         onClick={() => setShowSettings(!showSettings)}
                         style={{
-                            position: 'absolute', top: '1rem', right: '1rem', /* TOP RIGHT */
+                            position: 'absolute', top: '1rem', right: '1rem',
                             width: '40px', height: '40px', borderRadius: '50%',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                             background: 'white', boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
@@ -202,10 +215,10 @@ const Activity1 = () => {
                         <Settings size={24} color="#64748b" />
                     </button>
 
-                    {/* Expanded Panel */}
+                    { }
                     {showSettings && (
                         <div style={{
-                            position: 'absolute', top: '4rem', right: '1rem', /* Dropping down from right */
+                            position: 'absolute', top: '4rem', right: '1rem',
                             background: 'rgba(255,255,255,0.95)', padding: '1rem',
                             borderRadius: '1rem', boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
                             display: 'flex', flexDirection: 'column', gap: '1rem', zIndex: 100,
@@ -258,7 +271,7 @@ const Activity1 = () => {
                 </>
             )}
 
-            {/* INTRO OVERLAY */}
+            { }
             {gameState === 'intro' && (
                 <div style={{
                     position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
@@ -270,7 +283,7 @@ const Activity1 = () => {
                     <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
                         Patrick a besoin de toi !
                     </h1>
-                    <p style={{ fontSize: '1.5rem', maxWidth: '600px', marginBottom: '2rem' }}>
+                    <p style={{ fontSize: '1.5rem', maxWidth: '1000px', marginBottom: '2rem' }}>
                         Patrick est tout seul de l'autre côté...<br />
                         Aide SpongeBob à traverser le chemin pour le retrouver !
                     </p>
@@ -284,7 +297,7 @@ const Activity1 = () => {
                 </div>
             )}
 
-            {/* SCORE REVEAL OVERLAY */}
+            { }
             {gameState === 'score_reveal' && (
                 <div style={{
                     position: 'fixed', inset: 0,
@@ -315,7 +328,7 @@ const Activity1 = () => {
                 </div>
             )}
 
-            {/* SUCCESS OVERLAY */}
+            { }
             {gameState === 'won' && (
                 <div style={{
                     position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
@@ -341,9 +354,9 @@ const Activity1 = () => {
             )}
 
             <div style={{
-                flex: 1, /* Take remaining height */
-                overflowY: 'auto', /* Scroll only if absolutely needed, but we optimized to avoid it */
-                padding: '0.5rem',
+                flex: 1, 
+                overflow: 'hidden', 
+                padding: '2rem 0',
                 display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
                 filter: gameState !== 'playing' ? 'blur(5px)' : 'none',
                 transition: 'filter 0.5s'
@@ -351,10 +364,10 @@ const Activity1 = () => {
                 <GamePath totalSteps={items.length} currentStep={currentStep} stars={stars} />
 
                 <div className="card" style={{
-                    marginTop: '0.5rem',
-                    minHeight: 'auto', /* Remove fixed min-height */
-                    padding: '1.5rem', /* Reduced padding */
-                    display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
+                    marginTop: '2rem',
+                    minHeight: 'auto',
+                    padding: '1.5rem',
+                    display: 'flex', flexDirection: 'column', alignItems: 'center'
                 }}>
 
                     <button
@@ -362,30 +375,74 @@ const Activity1 = () => {
                         onClick={playSound}
                         disabled={isPlaying}
                         style={{
-                            borderRadius: '50%', width: '60px', height: '60px', /* Smaller speaker button */
+                            borderRadius: '50%', width: '60px', height: '60px',
                             padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            marginBottom: '1rem', animation: isPlaying ? 'pulse 1s infinite' : 'none'
-                        }}
-                    >
-                        <Volume2 size={30} />
+                            marginBottom: '0.5rem', animation: isPlaying ? 'pulse 1s infinite' : 'none'
+                        }}>
+                        <Volume2 size={32} />
                     </button>
 
                     <h2 style={{
-                        marginBottom: '1rem',
+                        marginBottom: '0.5rem',
                         fontFamily: 'var(--font-heading)',
-                        fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', /* fluid font */
+                        fontSize: '1.5rem',
                         lineHeight: 1.2
                     }}>
                         Qu'est ce que tu as entendu ?
                     </h2>
 
-                    <div className="choice-container" style={{ width: '100%' }}>
+                    {(() => {
+                        let imageFilename = itemsImages[currentItem.word] || itemsImages[currentItem.id];
+                        if (!imageFilename) {
+                            for (const catLevel of Object.values(VOCABULARY.categorization)) {
+                                const matchingItem = catLevel.find(item => item.label === currentItem.label);
+                                if (matchingItem && itemsImages[matchingItem.word]) {
+                                    imageFilename = itemsImages[matchingItem.word];
+                                    break;
+                                } else if (matchingItem && itemsImages[matchingItem.id]) {
+                                    imageFilename = itemsImages[matchingItem.id];
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (imageFilename) {
+                            return (
+                                <div style={{ marginBottom: '0.5rem', display: 'flex', justifyContent: 'center' }}>
+                                    <img
+                                        src={`${import.meta.env.BASE_URL}assets/images/items/${imageFilename}`}
+                                        alt={currentItem.label}
+                                        style={{
+                                            width: '140px', height: '140px', objectFit: 'contain',
+                                            borderRadius: '1rem', boxShadow: '0px 8px 15px rgba(0,0,0,0.15)',
+                                            background: 'white', padding: '10px'
+                                        }}
+                                        onError={(e) => {
+                                            // Fallback if not in items/
+                                            if (!e.target.src.includes('/categories/')) {
+                                                e.target.src = e.target.src.replace('/items/', '/categories/');
+                                            }
+                                        }}
+                                    />
+                                </div>
+                            );
+                        }
+                        return null;
+                    })()}
+
+                    <div className="choice-container" style={{
+                        display: 'flex', gap: '1.5rem', width: '100%', maxWidth: '1000px',
+                        marginTop: '1rem'
+                    }}>
                         <button
                             className="btn choice-btn"
                             style={{
                                 background: '#e0e7ff',
                                 border: '2px solid var(--primary)',
-                                width: '100%' // Full width inside grid cell
+                                flex: 1, height: '80px', fontSize: '2.5rem',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                borderRadius: '1rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                                transition: 'all 0.2s'
                             }}
                             onClick={() => handleChoice(contrastData.target_1)}
                             disabled={feedback === 'correct'}
@@ -406,7 +463,10 @@ const Activity1 = () => {
                             style={{
                                 background: '#e0e7ff',
                                 border: '2px solid var(--primary)',
-                                width: '100%' // Full width inside grid cell
+                                flex: 1, height: '80px', fontSize: '2.5rem',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                borderRadius: '1rem', boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                                transition: 'all 0.2s'
                             }}
                             onClick={() => handleChoice(contrastData.target_2)}
                             disabled={feedback === 'correct'}
@@ -423,29 +483,70 @@ const Activity1 = () => {
                         </button>
                     </div>
 
-                    {feedback === 'correct' && (
-                        <div style={{ color: 'var(--secondary)', marginTop: '2rem', display: 'flex', alignItems: 'center', fontSize: '1.5rem' }}>
-                            <CheckCircle size={32} style={{ marginRight: '10px' }} /> Bravo !
-                        </div>
-                    )}
-
-                    {feedback === 'incorrect' && (
-                        <div style={{ color: 'var(--danger)', marginTop: '2rem', display: 'flex', alignItems: 'center', fontSize: '1.5rem' }}>
-                            <AlertCircle size={32} style={{ marginRight: '10px' }} /> Essaie encore !
-                        </div>
-                    )}
                 </div>
 
                 <style>{`
-                    /* Already stacking via flex-wrap in parent div or we can force it */
+                    .choice-btn:hover:not(:disabled) { transform: scale(1.05); background: #c7d2fe !important; }
+                    .choice-btn:active:not(:disabled) { transform: scale(0.95); }
+                    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
                     @media (max-width: 600px) {
-                        .choice-container > div {
-                            flex-direction: column;
-                            align-items: stretch;
-                        }
+                        .choice-container { flex-direction: column; }
+                        .choice-btn { height: 60px !important; fontSize: 2rem !important; }
                     }
                 `}</style>
             </div>
+
+            {feedback === 'incorrect' && (
+                <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'rgba(255,255,255,0.85)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    zIndex: 1000, backdropFilter: 'blur(8px)',
+                    animation: 'fadeIn 0.3s ease-out'
+                }}>
+                    <div style={{
+                        fontSize: '5rem', color: 'var(--danger)',
+                        display: 'flex', flexDirection: 'column', alignItems: 'center',
+                        animation: 'shake 0.5s ease-in-out'
+                    }}>
+                        <XCircle size={120} style={{ marginBottom: '1rem' }} />
+                        Réessaie
+                    </div>
+                </div>
+            )}
+
+            {feedback === 'correct' && (
+                <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'rgba(255,255,255,0.85)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    zIndex: 1000, backdropFilter: 'blur(8px)',
+                    animation: 'fadeIn 0.3s ease-out'
+                }}>
+                    <div style={{
+                        fontSize: '5rem', color: 'var(--secondary)',
+                        display: 'flex', flexDirection: 'column', alignItems: 'center',
+                        animation: 'bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                    }}>
+                        <CheckCircle size={120} style={{ marginBottom: '1rem' }} />
+                        Bravo !
+                    </div>
+                </div>
+            )}
+            <style>{`
+                @keyframes bounce { 
+                    0% { transform: scale(0.3); opacity: 0; }
+                    50% { transform: scale(1.1); }
+                    70% { transform: scale(0.9); }
+                    100% { transform: scale(1); opacity: 1; }
+                }
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-10px); }
+                    75% { transform: translateX(10px); }
+                }
+                @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            `}</style>
         </div>
     );
 };

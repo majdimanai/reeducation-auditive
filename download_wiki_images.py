@@ -3,18 +3,16 @@ import os
 import shutil
 import time
 
-# Map vocabulary ID/Word to Wikipedia Search Term
 wiki_map = {
-    # ANIMAUX
+
     'kelb': 'Dog',
     'gatoussa': 'Cat',
     'batta': 'Duck',
-    'bagra': 'Cattle', # 'Cattle' gives better results than 'Cow' often
+    'bagra': 'Cattle',
     'djaja': 'Chicken',
     'houta': 'Fish',
     'arnoub': 'Rabbit',
 
-    # FRUITS
     'toffeh': 'Apple',
     'bordguela': 'Orange (fruit)',
     'della': 'Watermelon',
@@ -22,14 +20,12 @@ wiki_map = {
     'anzas': 'Pear',
     'tout': 'Blackberry', 
 
-    # LEGUMES (Vegetables)
     'sfenaria': 'Carrot',
     'batata': 'Potato',
     'bsol': 'Onion',
     'tmatem': 'Tomato',
     'felfel': 'Bell pepper', 
 
-    # CORPS (Body)
     'yed': 'Hand',
     '3in': 'Human eye',
     'khcham': 'Human nose',
@@ -39,27 +35,23 @@ wiki_map = {
     'wdhen': 'Ear',
     '7wajeb': 'Eyebrow',
 
-    # TRANSPORT
     'karhba': 'Car',
     'kar': 'Bus',
     'bisklet': 'Bicycle',
     'metro': 'Tram',
     'tayara': 'Airplane',
 
-    # MAISON (Home)
     'srir': 'Bed',
     'korsi': 'Chair',
     'tawla': 'Table (furniture)',
     'ghassala': 'Washing machine',
     'beb': 'Door',
 
-    # COULEURS (Colors) 
     'a7mar': 'Red', 
     'azra9': 'Blue',
     'asfar': 'Yellow',
     'akhdhar': 'Green',
 
-    # ALIMENTATION (Food)
     '7lib': 'Milk',
     '3dham': 'Egg as food',
     'zebda': 'Butter',
@@ -96,9 +88,9 @@ def download_wiki_image(word, term):
                 break
         
         if image_url:
-            # Get extension
+
             ext = image_url.split('.')[-1]
-            if len(ext) > 4: ext = 'jpg' # Sanity check
+            if len(ext) > 4: ext = 'jpg'
             
             filename = f"{word}.{ext}"
             filepath = os.path.join(output_dir, filename)
@@ -108,8 +100,7 @@ def download_wiki_image(word, term):
                 return filename
 
             print(f"Downloading {word} ({term}) -> {image_url}")
-            
-            # Download file
+
             img_resp = requests.get(image_url, headers=headers, stream=True)
             if img_resp.status_code == 200:
                 with open(filepath, 'wb') as f:
@@ -127,16 +118,14 @@ def download_wiki_image(word, term):
     
     return None
 
-# MAIN LOOP
 results = {}
 
 for word, term in wiki_map.items():
     filename = download_wiki_image(word, term)
     if filename:
         results[word] = filename
-    time.sleep(2) # Increased delay to avoid 429
+    time.sleep(2)
 
-# Update JSON Map
 import json
 json_path = 'src/data/items_images.json'
 

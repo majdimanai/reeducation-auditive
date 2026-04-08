@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useGame } from '../context/GameContext';
 import { VOCABULARY } from '../data/vocabulary';
+import itemsImages from '../data/items_images.json';
 import GamePath from '../components/GamePath';
 import { useNavigate } from 'react-router-dom';
-import { Volume2, AlertCircle, CheckCircle, VolumeX, Volume1, Plus, Minus, Settings } from 'lucide-react';
+import { Volume2, AlertCircle, CheckCircle, VolumeX, RotateCcw, Volume1, Plus, Minus, Settings, XCircle } from 'lucide-react';
 
 const Activity2 = () => {
-    const { config, setScore, score } = useGame(); // Reverted destructuring
+    const { config, setScore, score } = useGame();
     const navigate = useNavigate();
 
     const [items, setItems] = useState([]);
@@ -15,19 +16,15 @@ const Activity2 = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [options, setOptions] = useState([]);
 
-    // Star System State
-    const [attempts, setAttempts] = useState(0); // Track attempts for current item
-    const [stars, setStars] = useState([]); // Array of booleans [true, false, true...]
+    const [attempts, setAttempts] = useState(0);
+    const [stars, setStars] = useState([]);
 
-    // Noise State
-    const [noiseVolume, setNoiseVolume] = useState(0); // 0 to 1
-    const [noiseType, setNoiseType] = useState('background'); // 'background' or 'white'
+    const [noiseVolume, setNoiseVolume] = useState(0);
+    const [noiseType, setNoiseType] = useState('background');
     const [showSettings, setShowSettings] = useState(false);
 
-    // Game State: 'intro' | 'playing' | 'score_reveal' | 'won'
     const [gameState, setGameState] = useState('intro');
 
-    // Setup Items
     useEffect(() => {
         let pool = [];
         if (config.vocabularyLevel === 'docx_rich') {
@@ -37,22 +34,19 @@ const Activity2 = () => {
         } else if (config.vocabularyLevel === 'rich') {
             pool = [...VOCABULARY.categorization.rich];
         } else {
-            // Default to Base
+
             pool = [...VOCABULARY.categorization.base];
         }
 
-        // Pick 10 random items
         const shuffled = pool.sort(() => 0.5 - Math.random()).slice(0, 10);
         setItems(shuffled);
     }, [config]);
 
     const currentItem = items[currentStep];
 
-    // Setup Options for current item
     useEffect(() => {
         if (!currentItem) return;
 
-        // Map internal category to Arabic display
         const catMap = {
             'animaux': 'حيوانات', 'fruits': 'فواكه', 'legumes': 'خضر', 'corps': 'جسم', 'transport': 'نقل',
             'maison': 'منزل', 'couleurs': 'ألوان', 'alimentation': 'مأكولات', 'vetements': 'ملابس', 'ecole': 'مدرسة'
@@ -61,7 +55,6 @@ const Activity2 = () => {
         const internalCats = Object.keys(catMap);
         const correctCat = { id: currentItem.category, label: catMap[currentItem.category] };
 
-        // Pick 2 distractors
         const otherCats = internalCats
             .filter(c => c !== currentItem.category)
             .sort(() => 0.5 - Math.random())
@@ -73,24 +66,22 @@ const Activity2 = () => {
         setFeedback(null);
     }, [currentItem]);
 
-    // Audio Refs
     const noiseWhiteRef = React.useRef(null);
     const noiseBgRef = React.useRef(null);
+    const audioInstanceRef = React.useRef(null); // Reference to current playing word audio
 
-    // Audio Control Effect
     useEffect(() => {
         const bgAudio = noiseBgRef.current;
         const whiteAudio = noiseWhiteRef.current;
 
         if (!bgAudio || !whiteAudio) return;
 
-        // Pause all first
         bgAudio.pause();
         whiteAudio.pause();
 
         if (noiseVolume > 0) {
             const activeAudio = noiseType === 'background' ? bgAudio : whiteAudio;
-            // Background noise is naturally louder, so we scale it down a bit more
+
             const baseVol = noiseType === 'background' ? 0.05 : 0.3;
             activeAudio.volume = baseVol * noiseVolume;
 
@@ -99,25 +90,34 @@ const Activity2 = () => {
     }, [noiseVolume, noiseType]);
 
     const handleUserStart = () => {
-        setGameState('playing'); // Start the game
+        setGameState('playing');
     };
 
     const playSound = React.useCallback(() => {
         if (!currentItem || gameState !== 'playing') return;
+
+        // Stop any currently playing audio instance
+        if (audioInstanceRef.current) {
+            audioInstanceRef.current.pause();
+            audioInstanceRef.current.currentTime = 0;
+            audioInstanceRef.current = null;
+        }
+        window.speechSynthesis.cancel();
+
         setIsPlaying(true);
 
         const audioId = currentItem.id.replace(/^[sr]_/, '');
         const audioPath = `${import.meta.env.BASE_URL}audio/words/${audioId}.mp3`;
         const wordAudio = new Audio(audioPath);
+        audioInstanceRef.current = wordAudio; // Track this instance
 
-        // Apply Pitch Shift if Male selected (Simulation)
         if (config.voiceGender === 'male') {
             wordAudio.playbackRate = 0.85;
             wordAudio.preservesPitch = false;
         }
 
         wordAudio.onended = () => {
-            setIsPlaying(false);
+            if (audioInstanceRef.current === wordAudio) setIsPlaying(false);
         };
         wordAudio.onerror = () => {
             console.log("Using TTS fallback");
@@ -126,19 +126,23 @@ const Activity2 = () => {
             u.rate = config.voiceGender === 'male' ? 0.7 : 0.9;
             u.pitch = config.voiceGender === 'male' ? 0.6 : 1.1;
 
+            u.onstart = () => {
+                if (audioInstanceRef.current === wordAudio) setIsPlaying(true);
+            };
             u.onend = () => {
-                setIsPlaying(false);
+                if (audioInstanceRef.current === wordAudio) setIsPlaying(false);
             };
             window.speechSynthesis.speak(u);
         };
-        wordAudio.play().catch(e => wordAudio.onerror());
+        wordAudio.play().catch(e => {
+            console.log("Audio play failed, falling back:", e);
+            wordAudio.onerror();
+        });
     }, [currentItem, config, gameState]);
 
-    // Auto-Repeat Audio Loop (5s)
     useEffect(() => {
         if (gameState !== 'playing' || !currentItem) return;
 
-        // Initial Play
         playSound();
 
         const interval = setInterval(() => {
@@ -151,7 +155,6 @@ const Activity2 = () => {
     const handleChoice = (catId) => {
         if (feedback === 'correct') return;
 
-        // Increment attempts on every click
         setAttempts(a => a + 1);
 
         if (catId === currentItem.category) {
@@ -164,16 +167,28 @@ const Activity2 = () => {
 
             setFeedback('correct');
 
+            // Stop current audio immediately on correct choice
+            if (audioInstanceRef.current) {
+                audioInstanceRef.current.pause();
+                audioInstanceRef.current.currentTime = 0;
+                audioInstanceRef.current = null;
+            }
+            window.speechSynthesis.cancel();
+            setIsPlaying(false);
+
             setTimeout(() => {
                 if (currentStep < items.length - 1) {
                     setCurrentStep(c => c + 1);
-                    setAttempts(0); // Reset for next
+                    setAttempts(0);
                 } else {
-                    setGameState('score_reveal'); // Score Reveal
+                    setGameState('score_reveal');
                 }
             }, 1500);
         } else {
             setFeedback('incorrect');
+            setTimeout(() => {
+                setFeedback(null);
+            }, 1000);
         }
     };
 
@@ -192,21 +207,16 @@ const Activity2 = () => {
             <div className="bubbles">
                 {Array.from({ length: 10 }).map((_, i) => <div key={i} className="bubble"></div>)}
             </div>
-            <audio ref={noiseWhiteRef} loop src={`${import.meta.env.BASE_URL}audio/noise_white.webm`} />
-            <audio ref={noiseBgRef} loop src={`${import.meta.env.BASE_URL}audio/noise_continu.webm`} />
+            <audio ref={noiseWhiteRef} loop src={`${import.meta.env.BASE_URL}audio/noise_white.mp3`} />
+            <audio ref={noiseBgRef} loop src={`${import.meta.env.BASE_URL}audio/noise_continu.mp3`} />
 
-            {/* DIFFICULTY CONTROL REMOVED */}
-
-            {/* NOISE CONTROL PANEL */}
-            {/* NOISE CONTROL PANEL (Collapsible Top-Right) */}
             {gameState !== 'intro' && (
                 <>
-                    {/* Toggle Button */}
                     <button
                         className="btn"
                         onClick={() => setShowSettings(!showSettings)}
                         style={{
-                            position: 'absolute', top: '1rem', right: '1rem', /* TOP RIGHT */
+                            position: 'absolute', top: '1rem', right: '1rem',
                             width: '40px', height: '40px', borderRadius: '50%',
                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                             background: 'white', boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
@@ -216,10 +226,9 @@ const Activity2 = () => {
                         <Settings size={24} color="#64748b" />
                     </button>
 
-                    {/* Expanded Panel */}
                     {showSettings && (
                         <div style={{
-                            position: 'absolute', top: '4rem', right: '1rem', /* Dropping down from right */
+                            position: 'absolute', top: '4rem', right: '1rem',
                             background: 'rgba(255,255,255,0.95)', padding: '1rem',
                             borderRadius: '1rem', boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
                             display: 'flex', flexDirection: 'column', gap: '1rem', zIndex: 100,
@@ -266,13 +275,9 @@ const Activity2 = () => {
                             </div>
                         </div>
                     )}
-                    <style>{`
-                        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-                    `}</style>
                 </>
             )}
 
-            {/* SCORE REVEAL OVERLAY */}
             {gameState === 'score_reveal' && (
                 <div style={{
                     position: 'fixed', inset: 0,
@@ -303,7 +308,6 @@ const Activity2 = () => {
                 </div>
             )}
 
-            {/* INTRO OVERLAY */}
             {gameState === 'intro' && (
                 <div style={{
                     position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
@@ -315,7 +319,7 @@ const Activity2 = () => {
                     <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '3rem', marginBottom: '1rem', textAlign: 'center' }}>
                         Patrick a besoin de toi !
                     </h1>
-                    <p style={{ fontSize: '1.5rem', maxWidth: '600px', marginBottom: '2rem' }}>
+                    <p style={{ fontSize: '1.5rem', maxWidth: '1000px', marginBottom: '2rem' }}>
                         Patrick est tout seul de l'autre côté...<br />
                         Aide SpongeBob à traverser le chemin pour le retrouver !
                     </p>
@@ -329,7 +333,6 @@ const Activity2 = () => {
                 </div>
             )}
 
-            {/* SUCCESS OVERLAY */}
             {gameState === 'won' && (
                 <div style={{
                     position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
@@ -354,11 +357,10 @@ const Activity2 = () => {
                 </div>
             )}
 
-            {/* MAIN GAME */}
             <div style={{
-                flex: 1,
-                overflowY: 'auto',
-                padding: '0.5rem',
+                flex: 1, 
+                overflow: 'hidden', 
+                padding: '2rem 0',
                 display: 'flex', flexDirection: 'column', justifyContent: 'flex-start',
                 filter: gameState !== 'playing' ? 'blur(5px)' : 'none',
                 transition: 'filter 0.5s'
@@ -371,70 +373,88 @@ const Activity2 = () => {
                     </div>
                 ) : (
                     <div className="card" style={{
-                        marginTop: '0.5rem',
+                        marginTop: '2rem',
                         minHeight: 'auto',
-                        padding: '1rem',
+                        padding: '1.5rem',
                         display: 'flex', flexDirection: 'column', alignItems: 'center'
                     }}>
 
-                        {/* SPEAKER BUTTON (Activity 1 style) */}
-                        <button
-                            className="btn btn-secondary"
-                            onClick={playSound}
-                            disabled={isPlaying}
-                            style={{
-                                borderRadius: '50%', width: '80px', height: '80px',
-                                padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                marginBottom: '1rem', animation: isPlaying ? 'pulse 1s infinite' : 'none'
-                            }}
-                        >
-                            <Volume2 size={40} />
-                        </button>
+                    <button
+                        className="btn btn-secondary"
+                        onClick={playSound}
+                        disabled={isPlaying}
+                        style={{
+                            borderRadius: '50%', width: '60px', height: '60px',
+                            padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            marginBottom: '0.5rem', animation: isPlaying ? 'pulse 1s infinite' : 'none'
+                        }}>
+                        <Volume2 size={32} />
+                    </button>
 
                         <h2 style={{
-                            marginBottom: '1rem',
+                            marginBottom: '0.5rem',
                             fontFamily: 'var(--font-heading)',
-                            fontSize: 'clamp(1.5rem, 5vw, 2.5rem)',
+                            fontSize: '1.5rem',
                             lineHeight: 1.2
                         }}>
                             Qu'est ce que tu as entendu ?
                         </h2>
 
+                        {itemsImages[currentItem.word] && (
+                            <div style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
+                                {(() => {
+                                    const imageFilename = itemsImages[currentItem.word];
+                                    return (
+                                <div style={{ marginBottom: '0.5rem', display: 'flex', justifyContent: 'center' }}>
+                                    <img
+                                        src={`${import.meta.env.BASE_URL}assets/images/items/${imageFilename}`}
+                                        alt={currentItem.label}
+                                        style={{
+                                            width: '120px', height: '120px', objectFit: 'contain',
+                                            borderRadius: '1rem', boxShadow: '0px 8px 15px rgba(0,0,0,0.15)',
+                                            background: 'white', padding: '10px'
+                                        }}
+                                        onError={(e) => {
+                                            if (!e.target.src.includes('/categories/')) {
+                                                e.target.src = e.target.src.replace('/items/', '/categories/');
+                                            }
+                                        }}
+                                    />
+                                </div>
+                            );
+                        })()}
+                            </div>
+                        )}
+
                         <h3 className="title" style={{
-                            fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
-                            margin: '0.2rem 0',
+                            fontSize: '1.2rem',
+                            margin: '0.5rem 0',
                             textShadow: 'none',
                             color: 'var(--text-main)',
                             WebkitTextStroke: '0',
                             opacity: 0.8
                         }}>
-                            Choisis la bonne catégorie :
+                            Choisis la catégorie :
                         </h3>
 
-                        {/* OPTIONS GRID - RESPONSIVE */}
                         <div className="options-grid" style={{
                             display: 'grid',
-                            gap: '1.5rem',
+                            gap: '0.5rem',
                             width: '100%',
-                            maxWidth: '800px'
+                            maxWidth: '1000px'
                         }}>
                             {options.map(opt => {
-                                let btnClass = 'btn btn-option';
-                                if (feedback === 'correct' && opt.id === currentItem.category) btnClass += ' btn-correct';
-                                if (feedback === 'incorrect' && opt.id !== currentItem.category) btnClass += ' btn-incorrect';
-
-                                // Image Mapping
                                 const CATEGORY_IMAGES = {
                                     'maison': `${import.meta.env.BASE_URL}assets/images/categories/maison.jpeg`,
                                     'alimentation': `${import.meta.env.BASE_URL}assets/images/categories/alimentation.jpeg`,
-                                    'animaux': `${import.meta.env.BASE_URL}assets/images/categories/corps.jpeg`,
+                                    'animaux': `${import.meta.env.BASE_URL}assets/images/categories/animaux.jpeg`,
                                     'fruits': `${import.meta.env.BASE_URL}assets/images/categories/fruits.jpeg`,
                                     'legumes': `${import.meta.env.BASE_URL}assets/images/categories/legumes.jpeg`,
-                                    'corps': `${import.meta.env.BASE_URL}assets/images/categories/animaux.jpeg`,
+                                    'corps': `${import.meta.env.BASE_URL}assets/images/categories/corps.jpeg`,
                                     'transport': `${import.meta.env.BASE_URL}assets/images/categories/transport.jpeg`,
-                                    // 'ecole': `${import.meta.env.BASE_URL}assets/images/categories/ecole.jpeg`, // Fallback to emoji
                                     'vetements': `${import.meta.env.BASE_URL}assets/images/categories/vetements.jpeg`,
                                     'couleurs': `${import.meta.env.BASE_URL}assets/images/categories/couleurs.jpeg`,
+                                    'ecole': `${import.meta.env.BASE_URL}assets/images/categories/ecole.jpg`,
                                 };
                                 const imageSrc = CATEGORY_IMAGES[opt.id];
 
@@ -446,7 +466,6 @@ const Activity2 = () => {
                                         disabled={feedback === 'correct'}
                                         style={{
                                             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
-                                            /* Height handled by class */
                                         }}
                                     >
                                         {imageSrc ? (
@@ -460,39 +479,58 @@ const Activity2 = () => {
                                                 {getCategoryIcon(opt.id)}
                                             </span>
                                         )}
-                                        <span className="opt-label" style={{ fontSize: '1.8rem' }}>{opt.label}</span>
+                                        <span className="opt-label" style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{opt.label}</span>
                                     </button>
                                 );
                             })}
                         </div>
 
                         <style>{`
-                        .options-grid { grid-template-columns: repeat(3, 1fr); }
-                        .opt-btn { height: 180px; }
+                        .options-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+                        .opt-btn { height: 130px; border-width: 2px !important; }
                         
                         .opt-icon-img {
-                            width: 100px; height: 100px; object-fit: contain; margin-bottom: 0.5rem;
-                            filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+                            width: 80px; height: 80px; object-fit: contain; margin-bottom: 0.5rem;
+                            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
                         }
 
                         @media (max-width: 768px) {
-                            .options-grid { grid-template-columns: 1fr; gap: 1rem; }
+                            .options-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
                             .opt-btn { 
-                                height: 100px; /* Much smaller on mobile */
-                                flex-direction: row !important; /* Row layout on mobile to save vertical space */
-                                justify-content: flex-start !important;
-                                padding: 0 2rem !important;
+                                height: 100px; 
+                                padding: 0.2rem !important;
                             }
-                            .opt-icon { font-size: 2.5rem !important; margin-bottom: 0 !important; margin-right: 1rem; }
+                            .opt-icon { font-size: 2rem !important; }
                             .opt-icon-img {
-                                width: 60px; height: 60px; margin-bottom: 0 !important; margin-right: 1rem;
+                                width: 55px; height: 55px; margin-bottom: 0.1rem !important;
                             }
-                            .opt-label { font-size: 1.5rem !important; }
+                            .opt-label { font-size: 0.9rem !important; }
+                        }
+                            .opt-label { font-size: 1rem !important; }
                         }
                     `}</style>
                     </div>
                 )}
             </div>
+
+            {feedback === 'incorrect' && (
+                <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'rgba(255,255,255,0.85)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    zIndex: 1000, backdropFilter: 'blur(8px)',
+                    animation: 'fadeIn 0.3s ease-out'
+                }}>
+                    <div style={{
+                        fontSize: '5rem', color: '#ef4444',
+                        display: 'flex', flexDirection: 'column', alignItems: 'center',
+                        animation: 'shake 0.5s ease-in-out'
+                    }}>
+                        <XCircle size={120} style={{ marginBottom: '1rem' }} />
+                        Réessaie
+                    </div>
+                </div>
+            )}
 
             {feedback === 'correct' && (
                 <div style={{
@@ -502,15 +540,30 @@ const Activity2 = () => {
                     zIndex: 10, backdropFilter: 'blur(5px)'
                 }}>
                     <div style={{
-                        fontSize: '4rem', color: 'var(--secondary)',
+                        fontSize: '5rem', color: 'var(--secondary)',
                         display: 'flex', flexDirection: 'column', alignItems: 'center',
-                        animation: 'bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                        animation: 'bounce 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
                     }}>
-                        <CheckCircle size={80} style={{ marginBottom: '1rem' }} />
+                        <CheckCircle size={120} style={{ marginBottom: '1rem' }} />
                         Bravo !
                     </div>
                 </div>
             )}
+
+            <style>{`
+                @keyframes bounce { 
+                    0% { transform: scale(0.3); opacity: 0; }
+                    50% { transform: scale(1.1); }
+                    70% { transform: scale(0.9); }
+                    100% { transform: scale(1); opacity: 1; }
+                }
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-10px); }
+                    75% { transform: translateX(10px); }
+                }
+                @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+            `}</style>
         </div>
     );
 };

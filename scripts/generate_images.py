@@ -1,8 +1,7 @@
 import os
 
-# Vocabulary Data (Same as audio script)
 VOCAB_LIST = [
-    # Categorization Rich (New)
+
     {'id': 'cat_r_food_1', 'text': 'كسكروت', 'word': 'casse_croute'},
     {'id': 'cat_r_food_2', 'text': 'كسكسي', 'word': 'couscous'},
     {'id': 'cat_r_food_3', 'text': 'مقرونة', 'word': 'ma9rouna'},
@@ -17,17 +16,15 @@ VOCAB_LIST = [
     {'id': 'cat_r_clo_3', 'text': 'مريول', 'word': 'maryoul'},
     {'id': 'cat_r_clo_4', 'text': 'جوارب', 'word': 'kalchita'},
     {'id': 'cat_r_clo_5', 'text': 'حذاء', 'word': 'sabbat'},
-    {'id': 'cat_r_anim_1', 'text': 'غزالة', 'word': 'ghazela'},
     {'id': 'cat_r_anim_2', 'text': 'عصفور', 'word': '3asfour'},
     {'id': 'cat_r_anim_3', 'text': 'ذبانة', 'word': 'dhebena'},
     {'id': 'cat_r_anim_4', 'text': 'علوش', 'word': '3alouch'},
     {'id': 'cat_r_anim_5', 'text': 'سردوك', 'word': 'sardouk'},
-    {'id': 'cat_r_sch_1', 'text': 'سبورة', 'word': 'sabboura'},
+    {'id': 'cat_r_sch_1', 'text': 'صبورة', 'word': 'sabboura'},
     {'id': 'cat_r_sch_2', 'text': 'طباشير', 'word': 'tabachir'},
     {'id': 'cat_r_sch_3', 'text': 'محفظة', 'word': 'kartaba'},
     {'id': 'cat_r_sch_4', 'text': 'قلم', 'word': '9lam'},
 
-    # Categorization Base (Existing)
     {'id': 'cat_b_anim_1', 'text': 'كلب', 'word': 'kelb'},
     {'id': 'cat_b_anim_2', 'text': 'قطوسة', 'word': 'gatoussa'},
     {'id': 'cat_b_anim_6', 'text': 'حوتة', 'word': 'houta'},
@@ -75,13 +72,13 @@ if not os.path.exists(OUTPUT_DIR):
     os.makedirs(OUTPUT_DIR)
 
 def create_svg(text, word, filename):
-    # Create a nice colorful placeholder
+
     svg_content = f"""
     <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100%" height="100%" fill="#fef9c3" />
-      <rect x="20" y="20" width="360" height="360" rx="20" ry="20" fill="#ffffff" stroke="#fcd34d" stroke-width="10" />
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="60" fill="#1e3a8a">{text}</text>
-      <text x="50%" y="70%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="30" fill="#b91c1c" dy="20">{word}</text>
+      <rect width="100%" height="100%" fill="
+      <rect x="20" y="20" width="360" height="360" rx="20" ry="20" fill="
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="60" fill="
+      <text x="50%" y="70%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="30" fill="
     </svg>
     """
     with open(filename, 'w', encoding='utf-8') as f:

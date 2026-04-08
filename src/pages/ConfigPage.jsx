@@ -11,16 +11,15 @@ const ConfigPage = () => {
 
     const [settings, setSettings] = useState({
         vocabLevel: 'docx_simple',
-        contrast: 'b-m', // Default, will update on level change
-        voiceGender: 'female' // New setting
+        contrast: 'b-m',
+        voiceGender: 'female'
     });
 
-    // Reset contrast when level changes
     useEffect(() => {
         if (settings.vocabLevel === 'docx_simple' || settings.vocabLevel === 'base') {
             setSettings(s => ({ ...s, contrast: 'b-m' }));
         } else {
-            setSettings(s => ({ ...s, contrast: 'ch-j' }));
+            setSettings(s => ({ ...s, contrast: 'ch-k' }));
         }
     }, [settings.vocabLevel]);
 
@@ -47,7 +46,7 @@ const ConfigPage = () => {
                     <h3>Configuration de la séance</h3>
                 </div>
 
-                {/* Vocab Selection */}
+                { }
                 <div className="form-group">
                     <label>Niveau de Vocabulaire (Obligatoire)</label>
                     <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
@@ -68,7 +67,7 @@ const ConfigPage = () => {
                     </div>
                 </div>
 
-                {/* ACT 1: Contrast Selection */}
+                { }
                 {isAct1 && (
                     <div className="form-group" style={{ marginTop: '2rem' }}>
                         <label>Choisis une paire de sons :</label>
@@ -79,15 +78,13 @@ const ConfigPage = () => {
                         >
                             {settings.vocabLevel === 'docx_simple' ? (
                                 <>
-                                    <option value="b-m">/b/ vs /m/</option>
-                                    <option value="t-d">/t/ vs /d/</option>
+                                    <option value="b-m">/b/ vs /m/ (ب - م)</option>
+                                    <option value="d-t">/d/ vs /t/ (د - ت)</option>
                                 </>
                             ) : (
                                 <>
-                                    <option value="ch-j">/ch/ vs /j/ (ش - ج)</option>
-                                    <option value="k-g">/k/ vs /g/ (ك - ق)</option>
-                                    <option value="f-v">/f/ vs /v/ (ف - v)</option>
-                                    <option value="kh-h">/kh/ vs /h/ (خ - ه)</option>
+                                    <option value="ch-k">/ch/ vs /k/ (ش - ك)</option>
+                                    <option value="f-kh">/f/ vs /kh/ (ف - خ)</option>
                                 </>
                             )}
                         </select>
@@ -96,30 +93,6 @@ const ConfigPage = () => {
                         </p>
                     </div>
                 )}
-
-                {/* Voice Gender Selection */}
-                <div className="form-group" style={{ marginTop: '2rem' }}>
-                    <label>Voix (Homme/Femme)</label>
-                    <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
-                        <button
-                            className={`btn ${settings.voiceGender === 'female' ? 'btn-primary' : 'btn-secondary'}`}
-                            onClick={() => setSettings({ ...settings, voiceGender: 'female' })}
-                            style={{ opacity: settings.voiceGender === 'female' ? 1 : 0.6 }}
-                        >
-                            👩 Femme
-                        </button>
-                        <button
-                            className={`btn ${settings.voiceGender === 'male' ? 'btn-primary' : 'btn-secondary'}`}
-                            onClick={() => setSettings({ ...settings, voiceGender: 'male' })}
-                            style={{ opacity: settings.voiceGender === 'male' ? 1 : 0.6 }}
-                        >
-                            👨 Homme
-                        </button>
-                    </div>
-                </div>
-
-                {/* Noise Selection REMOVED per user request - moved in-game */}
-
 
                 <div style={{ marginTop: '3rem', textAlign: 'center' }}>
                     <button className="btn btn-primary" onClick={handleStart} style={{ padding: '1rem 3rem', fontSize: '1.2rem' }}>

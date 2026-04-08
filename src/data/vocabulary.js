@@ -1,346 +1,1414 @@
 export const VOCABULARY = {
-    // Activity 2: Categorization
-    categorization: {
-        base: [
-            { id: 'cat_b_anim_1', word: 'kelb', category: 'animaux', label: 'كلب' },
-            { id: 'cat_b_anim_2', word: 'gatoussa', category: 'animaux', label: 'قطوسة' },
-            { id: 'cat_b_anim_3', word: 'batta', category: 'animaux', label: 'بطة' },
-            { id: 'cat_b_anim_4', word: 'bagra', category: 'animaux', label: 'بقرة' },
-            { id: 'cat_b_anim_5', word: 'djaja', category: 'animaux', label: 'دجاجة' },
-            { id: 'cat_b_anim_6', word: 'houta', category: 'animaux', label: 'حوتة' },
-            { id: 'cat_b_anim_7', word: 'arnoub', category: 'animaux', label: 'أرنب' },
-
-            { id: 'cat_b_fruit_1', word: 'toffeh', category: 'fruits', label: 'تفاح' },
-            { id: 'cat_b_fruit_2', word: 'bordguela', category: 'fruits', label: 'برتقال' },
-            { id: 'cat_b_fruit_3', word: 'della', category: 'fruits', label: 'دلاع' },
-            { id: 'cat_b_fruit_4', word: 'bannane', category: 'fruits', label: 'بنان' },
-            { id: 'cat_b_fruit_5', word: 'anzas', category: 'fruits', label: 'إجاص' },
-            { id: 'cat_b_fruit_6', word: 'tout', category: 'fruits', label: 'توت' },
-
-            { id: 'cat_b_leg_1', word: 'sfenaria', category: 'legumes', label: 'سفنارية' },
-            { id: 'cat_b_leg_2', word: 'batata', category: 'legumes', label: 'بطاطا' },
-            { id: 'cat_b_leg_3', word: 'bsol', category: 'legumes', label: 'بصل' },
-            { id: 'cat_b_leg_4', word: 'tmatem', category: 'legumes', label: 'طماطم' },
-            { id: 'cat_b_leg_5', word: 'felfel', category: 'legumes', label: 'فلفل' },
-
-            { id: 'cat_b_body_1', word: 'yed', category: 'corps', label: 'يد' },
-            { id: 'cat_b_body_2', word: '3in', category: 'corps', label: 'عين' },
-            { id: 'cat_b_body_3', word: 'khcham', category: 'corps', label: 'خشم' },
-            { id: 'cat_b_body_4', word: 'fom', category: 'corps', label: 'فم' },
-            { id: 'cat_b_body_5', word: 'seg', category: 'corps', label: 'ساق' },
-            { id: 'cat_b_body_6', word: 'ch3ar', category: 'corps', label: 'شعر' },
-            { id: 'cat_b_body_7', word: 'wdhen', category: 'corps', label: 'أذن' },
-            { id: 'cat_b_body_8', word: '7wajeb', category: 'corps', label: 'حواجب' },
-
-            { id: 'cat_b_trans_1', word: 'karhba', category: 'transport', label: 'كرهبة' },
-            { id: 'cat_b_trans_2', word: 'kar', category: 'transport', label: 'كار' },
-            { id: 'cat_b_trans_3', word: 'bisklet', category: 'transport', label: 'بسكلات' },
-            { id: 'cat_b_trans_4', word: 'metro', category: 'transport', label: 'ميترو' },
-            { id: 'cat_b_trans_5', word: 'tayara', category: 'transport', label: 'طيارة' },
-
-            { id: 'cat_b_home_1', word: 'srir', category: 'maison', label: 'سرير' },
-            { id: 'cat_b_home_2', word: 'korsi', category: 'maison', label: 'كرسي' },
-            { id: 'cat_b_home_3', word: 'tawla', category: 'maison', label: 'طاولة' },
-            { id: 'cat_b_home_4', word: 'ghassala', category: 'maison', label: 'غسالة' },
-            { id: 'cat_b_home_5', word: 'beb', category: 'maison', label: 'باب' },
-
-            { id: 'cat_b_col_1', word: 'a7mar', category: 'couleurs', label: 'أحمر' },
-            { id: 'cat_b_col_2', word: 'azra9', category: 'couleurs', label: 'أزرق' },
-            { id: 'cat_b_col_3', word: 'asfar', category: 'couleurs', label: 'أصفر' },
-            { id: 'cat_b_col_4', word: 'akhdhar', category: 'couleurs', label: 'أخضر' },
-
-            { id: 'cat_b_food_1', word: '7lib', category: 'alimentation', label: 'حليب' },
-            { id: 'cat_b_food_2', word: '3dham', category: 'alimentation', label: 'عظم' },
-            { id: 'cat_b_food_3', word: 'zebda', category: 'alimentation', label: 'زبدة' },
-            { id: 'cat_b_food_4', word: 'yaghorta', category: 'alimentation', label: 'ياغرطة' },
-            { id: 'cat_b_food_5', word: 'khobz', category: 'alimentation', label: 'خبز' },
+    "categorization": {
+        "base": [
+            {
+                "id": "cat_b_0",
+                "word": "word_b_0",
+                "category": "alimentation",
+                "label": "حليب"
+            },
+            {
+                "id": "cat_b_1",
+                "word": "word_b_1",
+                "category": "alimentation",
+                "label": "خبز"
+            },
+            {
+                "id": "cat_b_2",
+                "word": "word_b_2",
+                "category": "alimentation",
+                "label": "زبدة"
+            },
+            {
+                "id": "cat_b_3",
+                "word": "word_b_3",
+                "category": "alimentation",
+                "label": "عظم"
+            },
+            {
+                "id": "cat_b_4",
+                "word": "word_b_4",
+                "category": "alimentation",
+                "label": "ياغورطة"
+            },
+            {
+                "id": "cat_b_5",
+                "word": "word_b_5",
+                "category": "animaux",
+                "label": "ارنب"
+            },
+            {
+                "id": "cat_b_6",
+                "word": "word_b_6",
+                "category": "animaux",
+                "label": "بطة"
+            },
+            {
+                "id": "cat_b_7",
+                "word": "word_b_7",
+                "category": "animaux",
+                "label": "بقرة"
+            },
+            {
+                "id": "cat_b_8",
+                "word": "word_b_8",
+                "category": "animaux",
+                "label": "حوتة"
+            },
+            {
+                "id": "cat_b_9",
+                "word": "word_b_9",
+                "category": "animaux",
+                "label": "دجاجة"
+            },
+            {
+                "id": "cat_b_10",
+                "word": "word_b_10",
+                "category": "animaux",
+                "label": "عصفور"
+            },
+            {
+                "id": "cat_b_11",
+                "word": "word_b_11",
+                "category": "animaux",
+                "label": "قطوسة"
+            },
+            {
+                "id": "cat_b_12",
+                "word": "word_b_12",
+                "category": "animaux",
+                "label": "كلب"
+            },
+            {
+                "id": "cat_b_13",
+                "word": "word_b_13",
+                "category": "couleurs",
+                "label": "احمر"
+            },
+            {
+                "id": "cat_b_14",
+                "word": "word_b_14",
+                "category": "couleurs",
+                "label": "اخضر"
+            },
+            {
+                "id": "cat_b_15",
+                "word": "word_b_15",
+                "category": "couleurs",
+                "label": "ازرق"
+            },
+            {
+                "id": "cat_b_16",
+                "word": "word_b_16",
+                "category": "couleurs",
+                "label": "اصفر"
+            },
+            {
+                "id": "cat_b_17",
+                "word": "word_b_17",
+                "category": "fruits",
+                "label": "بردقان"
+            },
+            {
+                "id": "cat_b_18",
+                "word": "word_b_18",
+                "category": "fruits",
+                "label": "بانان"
+            },
+            {
+                "id": "cat_b_19",
+                "word": "word_b_19",
+                "category": "fruits",
+                "label": "تفاح"
+            },
+            {
+                "id": "cat_b_20",
+                "word": "word_b_20",
+                "category": "fruits",
+                "label": "تمر"
+            },
+            {
+                "id": "cat_b_21",
+                "word": "word_b_21",
+                "category": "fruits",
+                "label": "توت"
+            },
+            {
+                "id": "cat_b_22",
+                "word": "word_b_22",
+                "category": "fruits",
+                "label": "دلاع"
+            },
+            {
+                "id": "cat_b_23",
+                "word": "word_b_23",
+                "category": "legumes",
+                "label": "بصل"
+            },
+            {
+                "id": "cat_b_24",
+                "word": "word_b_24",
+                "category": "legumes",
+                "label": "بطاطا"
+            },
+            {
+                "id": "cat_b_25",
+                "word": "word_b_25",
+                "category": "legumes",
+                "label": "سفنارية"
+            },
+            {
+                "id": "cat_b_26",
+                "word": "word_b_26",
+                "category": "legumes",
+                "label": "طماطم"
+            },
+            {
+                "id": "cat_b_27",
+                "word": "word_b_27",
+                "category": "legumes",
+                "label": "فلفل"
+            },
+            {
+                "id": "cat_b_28",
+                "word": "word_b_28",
+                "category": "transport",
+                "label": "بسكلات"
+            },
+            {
+                "id": "cat_b_29",
+                "word": "word_b_29",
+                "category": "transport",
+                "label": "طيارة"
+            },
+            {
+                "id": "cat_b_30",
+                "word": "word_b_30",
+                "category": "transport",
+                "label": "كار"
+            },
+            {
+                "id": "cat_b_31",
+                "word": "word_b_31",
+                "category": "transport",
+                "label": "كرهبة"
+            },
+            {
+                "id": "cat_b_32",
+                "word": "word_b_32",
+                "category": "transport",
+                "label": "ميترو"
+            },
+            {
+                "id": "cat_b_33",
+                "word": "word_b_33",
+                "category": "maison",
+                "label": "باب"
+            },
+            {
+                "id": "cat_b_34",
+                "word": "word_b_34",
+                "category": "maison",
+                "label": "سرير"
+            },
+            {
+                "id": "cat_b_35",
+                "word": "word_b_35",
+                "category": "maison",
+                "label": "طاولة"
+            },
+            {
+                "id": "cat_b_36",
+                "word": "word_b_36",
+                "category": "maison",
+                "label": "غسالة"
+            },
+            {
+                "id": "cat_b_37",
+                "word": "word_b_37",
+                "category": "maison",
+                "label": "كرسي"
+            },
+            {
+                "id": "cat_b_38",
+                "word": "word_b_38",
+                "category": "corps",
+                "label": "حواجب"
+            },
+            {
+                "id": "cat_b_39",
+                "word": "word_b_39",
+                "category": "corps",
+                "label": "خشم"
+            },
+            {
+                "id": "cat_b_40",
+                "word": "word_b_40",
+                "category": "corps",
+                "label": "ساق"
+            },
+            {
+                "id": "cat_b_41",
+                "word": "word_b_41",
+                "category": "corps",
+                "label": "شعر"
+            },
+            {
+                "id": "cat_b_42",
+                "word": "word_b_42",
+                "category": "corps",
+                "label": "عينين"
+            },
+            {
+                "id": "cat_b_43",
+                "word": "word_b_43",
+                "category": "corps",
+                "label": "فم"
+            },
+            {
+                "id": "cat_b_44",
+                "word": "word_b_44",
+                "category": "corps",
+                "label": "وذن"
+            },
+            {
+                "id": "cat_b_45",
+                "word": "word_b_45",
+                "category": "corps",
+                "label": "يد"
+            }
         ],
-        rich: [
-            { id: 'cat_r_sch_1', word: '9lam', category: 'ecole', label: 'قلم' },
-            { id: 'cat_r_sch_2', word: 'kartaba', category: 'ecole', label: 'كرطابة' },
-            { id: 'cat_r_sch_3', word: 'tabachir', category: 'ecole', label: 'طباشير' },
-            { id: 'cat_r_sch_4', word: 'sabboura', category: 'ecole', label: 'صبورة' },
-            { id: 'cat_b_home_3', word: 'tawla_rich', category: 'ecole', label: 'طاولة' },
-            { id: 'cat_b_home_2', word: 'korsi_rich', category: 'ecole', label: 'كرسي' },
-
-            { id: 'cat_r_corps_6', word: 'saguine', category: 'corps', label: 'ساقين' },
-            { id: 'cat_b_body_6', word: 'ch3ar_rich', category: 'corps', label: 'شعر' },
-            { id: 'cat_b_body_2', word: '3inin', category: 'corps', label: 'عينين' },
-            { id: 'cat_b_body_3', word: 'khcham_rich', category: 'corps', label: 'خشم' },
-
-            { id: 'cat_r_anim_1', word: 'sardouk', category: 'animaux', label: 'سردوك' },
-            { id: 'cat_r_anim_2', word: '3asfour', category: 'animaux', label: 'عصفور' },
-            { id: 'cat_r_anim_3', word: '3allouch', category: 'animaux', label: 'علوش' },
-            { id: 'cat_r_anim_4', word: 'dhebena', category: 'animaux', label: 'ذبانة' },
-            { id: 'cat_r_anim_5', word: 'zrafa', category: 'animaux', label: 'زرافة' },
-
-            { id: 'cat_r_clo_1', word: 'sabbat', category: 'vetements', label: 'صباط' },
-            { id: 'cat_r_clo_2', word: 'kalchita', category: 'vetements', label: 'كلسيطة' },
-            { id: 'cat_r_clo_3', word: 'maryoul', category: 'vetements', label: 'مريول' },
-            { id: 'cat_r_clo_4', word: 'chappeau', category: 'vetements', label: 'شابو' },
-            { id: 'cat_r_clo_5', word: 'serwel', category: 'vetements', label: 'سروال' },
-
-            { id: 'cat_r_hom_1', word: 'sala', category: 'maison', label: 'صالون' },
-            { id: 'cat_r_hom_2', word: 'farch', category: 'maison', label: 'فرش' },
-            { id: 'cat_r_hom_3', word: 'kouzina', category: 'maison', label: 'كوزينة' },
-            { id: 'cat_r_hom_4', word: 'talvza', category: 'maison', label: 'تلفزة' },
-            { id: 'cat_r_hom_5', word: 'frigidaire', category: 'maison', label: 'فريجيدار' },
-
-            { id: 'cat_r_food_1', word: 'couscous', category: 'alimentation', label: 'سكسي' },
-            { id: 'cat_r_food_2', word: 'ma9rouna', category: 'alimentation', label: 'مقرونة' },
-            { id: 'cat_r_food_3', word: 'lablabi', category: 'alimentation', label: 'لبلابي' },
-            { id: 'cat_r_food_4', word: 'casse_croute', category: 'alimentation', label: 'كسكروت' }
+        "rich": [
+            {
+                "id": "cat_r_0",
+                "word": "word_r_0",
+                "category": "maison",
+                "label": "تلفزة"
+            },
+            {
+                "id": "cat_r_1",
+                "word": "word_r_1",
+                "category": "maison",
+                "label": "صالة"
+            },
+            {
+                "id": "cat_r_2",
+                "word": "word_r_2",
+                "category": "maison",
+                "label": "فرش"
+            },
+            {
+                "id": "cat_r_3",
+                "word": "word_r_3",
+                "category": "maison",
+                "label": "فريجيدار"
+            },
+            {
+                "id": "cat_r_4",
+                "word": "word_r_4",
+                "category": "maison",
+                "label": "كوزينة"
+            },
+            {
+                "id": "cat_r_5",
+                "word": "word_r_5",
+                "category": "alimentation",
+                "label": "كسكروت"
+            },
+            {
+                "id": "cat_r_6",
+                "word": "word_r_6",
+                "category": "alimentation",
+                "label": "كسكسي"
+            },
+            {
+                "id": "cat_r_7",
+                "word": "word_r_7",
+                "category": "alimentation",
+                "label": "لبلابي"
+            },
+            {
+                "id": "cat_r_8",
+                "word": "word_r_8",
+                "category": "alimentation",
+                "label": "مقرونة"
+            },
+            {
+                "id": "cat_r_9",
+                "word": "word_r_9",
+                "category": "animaux",
+                "label": "سردوك"
+            },
+            {
+                "id": "cat_r_10",
+                "word": "word_r_10",
+                "category": "animaux",
+                "label": "عصفور"
+            },
+            {
+                "id": "cat_r_11",
+                "word": "word_r_11",
+                "category": "animaux",
+                "label": "علوش"
+            },
+            {
+                "id": "cat_r_12",
+                "word": "word_r_12",
+                "category": "animaux",
+                "label": "غزالة"
+            },
+            {
+                "id": "cat_r_13",
+                "word": "word_r_13",
+                "category": "animaux",
+                "label": "كلب"
+            },
+            {
+                "id": "cat_r_14",
+                "word": "word_r_14",
+                "category": "ecole",
+                "label": "سبورة"
+            },
+            {
+                "id": "cat_r_15",
+                "word": "word_r_15",
+                "category": "ecole",
+                "label": "طاولة"
+            },
+            {
+                "id": "cat_r_16",
+                "word": "word_r_16",
+                "category": "ecole",
+                "label": "طباشير"
+            },
+            {
+                "id": "cat_r_17",
+                "word": "word_r_17",
+                "category": "ecole",
+                "label": "قلم"
+            },
+            {
+                "id": "cat_r_18",
+                "word": "word_r_18",
+                "category": "ecole",
+                "label": "كرسي"
+            },
+            {
+                "id": "cat_r_19",
+                "word": "word_r_19",
+                "category": "corps",
+                "label": "خشم"
+            },
+            {
+                "id": "cat_r_20",
+                "word": "word_r_20",
+                "category": "corps",
+                "label": "شعر"
+            },
+            {
+                "id": "cat_r_21",
+                "word": "word_r_21",
+                "category": "corps",
+                "label": "عينين"
+            },
+            {
+                "id": "cat_r_22",
+                "word": "word_r_22",
+                "category": "corps",
+                "label": "فم"
+            },
+            {
+                "id": "cat_r_23",
+                "word": "word_r_23",
+                "category": "corps",
+                "label": "يدين"
+            },
+            {
+                "id": "cat_r_24",
+                "word": "word_r_24",
+                "category": "vetements",
+                "label": "سروال"
+            },
+            {
+                "id": "cat_r_25",
+                "word": "word_r_25",
+                "category": "vetements",
+                "label": "صباط"
+            },
+            {
+                "id": "cat_r_26",
+                "word": "word_r_26",
+                "category": "vetements",
+                "label": "كلسيطة"
+            },
+            {
+                "id": "cat_r_27",
+                "word": "word_r_27",
+                "category": "vetements",
+                "label": "مريول"
+            },
+            {
+                "id": "cat_r_28",
+                "word": "word_r_28",
+                "category": "vetements",
+                "label": "مظلة"
+            }
         ],
-        docx_simple: [
-            { id: 's_cat_b_body_4', word: 's_fom', category: 'corps', label: 'فم' },
-            { id: 's_cat_b_body_8', word: 's_7wajeb', category: 'corps', label: 'حواجب' },
-            { id: 's_cat_b_body_1', word: 's_yed', category: 'corps', label: 'يد' },
-            { id: 's_cat_b_body_3', word: 's_khcham', category: 'corps', label: 'خشم' },
-            { id: 's_cat_b_body_6', word: 's_ch3ar', category: 'corps', label: 'شعر' },
-            { id: 's_cat_b_body_5', word: 's_seg', category: 'corps', label: 'ساق' },
-            { id: 's_cat_b_body_2', word: 's_3in', category: 'corps', label: 'عين' },
-            { id: 's_cat_b_leg_3', word: 's_bsol', category: 'legumes', label: 'بصل' },
-            { id: 's_cat_b_leg_5', word: 's_felfel', category: 'legumes', label: 'فلفل' },
-            { id: 's_cat_b_leg_4', word: 's_tmatem', category: 'legumes', label: 'طماطم' },
-            { id: 's_cat_b_leg_1', word: 's_sfenaria', category: 'legumes', label: 'سفنارية' },
-            { id: 's_cat_b_leg_2', word: 's_batata', category: 'legumes', label: 'بطاطا' },
-            { id: 's_cat_b_fruit_1', word: 's_toffeh', category: 'fruits', label: 'تفاح' },
-            { id: 's_cat_b_fruit_6', word: 's_tout', category: 'fruits', label: 'توت' },
-            { id: 's_cat_b_fruit_5', word: 's_anzas', category: 'fruits', label: 'أنزاس' },
-            { id: 's_cat_b_fruit_3', word: 's_della', category: 'fruits', label: 'دلاع' },
-            { id: 's_cat_b_fruit_4', word: 's_bannane', category: 'fruits', label: 'بنان' },
-            { id: 's_cat_b_fruit_2', word: 's_bordguela', category: 'fruits', label: 'بردڤان' },
-            { id: 's_cat_b_anim_6', word: 's_houta', category: 'animaux', label: 'حوتة' },
-            { id: 's_cat_b_anim_2', word: 's_gatoussa', category: 'animaux', label: 'قطوسة' },
-            { id: 's_cat_b_anim_5', word: 's_djaja', category: 'animaux', label: 'دجاجة' },
-            { id: 's_cat_b_anim_1', word: 's_kelb', category: 'animaux', label: 'كلب' },
-            { id: 's_cat_b_anim_7', word: 's_arnoub', category: 'animaux', label: 'أرنب' },
-            { id: 's_cat_b_anim_4', word: 's_bagra', category: 'animaux', label: 'رة' },
-            { id: 's_cat_b_anim_3', word: 's_batta', category: 'animaux', label: 'بطة' },
-            { id: 's_cat_b_trans_4', word: 's_metro', category: 'transport', label: 'ميترو' },
-            { id: 's_cat_b_trans_5', word: 's_tayara', category: 'transport', label: 'طيارة' },
-            { id: 's_cat_b_trans_1', word: 's_karhba', category: 'transport', label: 'كرهبة' },
-            { id: 's_cat_b_trans_3', word: 's_bisklet', category: 'transport', label: 'بسكلات' },
-            { id: 's_cat_b_trans_2', word: 's_kar', category: 'transport', label: 'كار' },
-            { id: 's_cat_b_home_5', word: 's_beb', category: 'maison', label: 'باب' },
-            { id: 's_cat_b_home_2', word: 's_korsi', category: 'maison', label: 'كرسي' },
-            { id: 's_cat_b_home_3', word: 's_tawla', category: 'maison', label: 'طاولة' },
-            { id: 's_cat_b_home_4', word: 's_ghassala', category: 'maison', label: 'غسالة' },
-            { id: 's_cat_b_home_1', word: 's_srir', category: 'maison', label: 'سرير' },
-            { id: 's_cat_b_col_3', word: 's_asfar', category: 'couleurs', label: 'أصفر' },
-            { id: 's_cat_b_col_2', word: 's_azra9', category: 'couleurs', label: 'أزرق' },
-            { id: 's_cat_b_col_1', word: 's_a7mar', category: 'couleurs', label: 'أحمر' },
-            { id: 's_cat_b_col_4', word: 's_akhdhar', category: 'couleurs', label: 'أخضر' },
-            { id: 's_cat_b_food_4', word: 's_yaghorta', category: 'alimentation', label: 'ياغرطة' },
-            { id: 's_cat_b_food_2', word: 's_3dham', category: 'alimentation', label: 'عظم' },
-            { id: 's_cat_b_food_1', word: 's_7lib', category: 'alimentation', label: 'حليب' },
-            { id: 's_cat_b_food_5', word: 's_khobz', category: 'alimentation', label: 'خبز' },
-            { id: 's_cat_b_food_3', word: 's_zebda', category: 'alimentation', label: 'زبدة' }
+        "docx_simple": [
+            {
+                "id": "s_cat_b_0",
+                "word": "s_word_b_0",
+                "category": "alimentation",
+                "label": "حليب"
+            },
+            {
+                "id": "s_cat_b_1",
+                "word": "s_word_b_1",
+                "category": "alimentation",
+                "label": "خبز"
+            },
+            {
+                "id": "s_cat_b_2",
+                "word": "s_word_b_2",
+                "category": "alimentation",
+                "label": "زبدة"
+            },
+            {
+                "id": "s_cat_b_3",
+                "word": "s_word_b_3",
+                "category": "alimentation",
+                "label": "عظم"
+            },
+            {
+                "id": "s_cat_b_4",
+                "word": "s_word_b_4",
+                "category": "alimentation",
+                "label": "ياغورطة"
+            },
+            {
+                "id": "s_cat_b_5",
+                "word": "s_word_b_5",
+                "category": "animaux",
+                "label": "ارنب"
+            },
+            {
+                "id": "s_cat_b_6",
+                "word": "s_word_b_6",
+                "category": "animaux",
+                "label": "بطة"
+            },
+            {
+                "id": "s_cat_b_7",
+                "word": "s_word_b_7",
+                "category": "animaux",
+                "label": "بقرة"
+            },
+            {
+                "id": "s_cat_b_8",
+                "word": "s_word_b_8",
+                "category": "animaux",
+                "label": "حوتة"
+            },
+            {
+                "id": "s_cat_b_9",
+                "word": "s_word_b_9",
+                "category": "animaux",
+                "label": "دجاجة"
+            },
+            {
+                "id": "s_cat_b_10",
+                "word": "s_word_b_10",
+                "category": "animaux",
+                "label": "عصفور"
+            },
+            {
+                "id": "s_cat_b_11",
+                "word": "s_word_b_11",
+                "category": "animaux",
+                "label": "قطوسة"
+            },
+            {
+                "id": "s_cat_b_12",
+                "word": "s_word_b_12",
+                "category": "animaux",
+                "label": "كلب"
+            },
+            {
+                "id": "s_cat_b_13",
+                "word": "s_word_b_13",
+                "category": "couleurs",
+                "label": "احمر"
+            },
+            {
+                "id": "s_cat_b_14",
+                "word": "s_word_b_14",
+                "category": "couleurs",
+                "label": "اخضر"
+            },
+            {
+                "id": "s_cat_b_15",
+                "word": "s_word_b_15",
+                "category": "couleurs",
+                "label": "ازرق"
+            },
+            {
+                "id": "s_cat_b_16",
+                "word": "s_word_b_16",
+                "category": "couleurs",
+                "label": "اصفر"
+            },
+            {
+                "id": "s_cat_b_17",
+                "word": "s_word_b_17",
+                "category": "fruits",
+                "label": "بردقان"
+            },
+            {
+                "id": "s_cat_b_18",
+                "word": "s_word_b_18",
+                "category": "fruits",
+                "label": "بانان"
+            },
+            {
+                "id": "s_cat_b_19",
+                "word": "s_word_b_19",
+                "category": "fruits",
+                "label": "تفاح"
+            },
+            {
+                "id": "s_cat_b_20",
+                "word": "s_word_b_20",
+                "category": "fruits",
+                "label": "تمر"
+            },
+            {
+                "id": "s_cat_b_21",
+                "word": "s_word_b_21",
+                "category": "fruits",
+                "label": "توت"
+            },
+            {
+                "id": "s_cat_b_22",
+                "word": "s_word_b_22",
+                "category": "fruits",
+                "label": "دلاع"
+            },
+            {
+                "id": "s_cat_b_23",
+                "word": "s_word_b_23",
+                "category": "legumes",
+                "label": "بصل"
+            },
+            {
+                "id": "s_cat_b_24",
+                "word": "s_word_b_24",
+                "category": "legumes",
+                "label": "بطاطا"
+            },
+            {
+                "id": "s_cat_b_25",
+                "word": "s_word_b_25",
+                "category": "legumes",
+                "label": "سفنارية"
+            },
+            {
+                "id": "s_cat_b_26",
+                "word": "s_word_b_26",
+                "category": "legumes",
+                "label": "طماطم"
+            },
+            {
+                "id": "s_cat_b_27",
+                "word": "s_word_b_27",
+                "category": "legumes",
+                "label": "فلفل"
+            },
+            {
+                "id": "s_cat_b_28",
+                "word": "s_word_b_28",
+                "category": "transport",
+                "label": "بسكلات"
+            },
+            {
+                "id": "s_cat_b_29",
+                "word": "s_word_b_29",
+                "category": "transport",
+                "label": "طيارة"
+            },
+            {
+                "id": "s_cat_b_30",
+                "word": "s_word_b_30",
+                "category": "transport",
+                "label": "كار"
+            },
+            {
+                "id": "s_cat_b_31",
+                "word": "s_word_b_31",
+                "category": "transport",
+                "label": "كرهبة"
+            },
+            {
+                "id": "s_cat_b_32",
+                "word": "s_word_b_32",
+                "category": "transport",
+                "label": "ميترو"
+            },
+            {
+                "id": "s_cat_b_33",
+                "word": "s_word_b_33",
+                "category": "maison",
+                "label": "باب"
+            },
+            {
+                "id": "s_cat_b_34",
+                "word": "s_word_b_34",
+                "category": "maison",
+                "label": "سرير"
+            },
+            {
+                "id": "s_cat_b_35",
+                "word": "s_word_b_35",
+                "category": "maison",
+                "label": "طاولة"
+            },
+            {
+                "id": "s_cat_b_36",
+                "word": "s_word_b_36",
+                "category": "maison",
+                "label": "غسالة"
+            },
+            {
+                "id": "s_cat_b_37",
+                "word": "s_word_b_37",
+                "category": "maison",
+                "label": "كرسي"
+            },
+            {
+                "id": "s_cat_b_38",
+                "word": "s_word_b_38",
+                "category": "corps",
+                "label": "حواجب"
+            },
+            {
+                "id": "s_cat_b_39",
+                "word": "s_word_b_39",
+                "category": "corps",
+                "label": "خشم"
+            },
+            {
+                "id": "s_cat_b_40",
+                "word": "s_word_b_40",
+                "category": "corps",
+                "label": "ساق"
+            },
+            {
+                "id": "s_cat_b_41",
+                "word": "s_word_b_41",
+                "category": "corps",
+                "label": "شعر"
+            },
+            {
+                "id": "s_cat_b_42",
+                "word": "s_word_b_42",
+                "category": "corps",
+                "label": "عينين"
+            },
+            {
+                "id": "s_cat_b_43",
+                "word": "s_word_b_43",
+                "category": "corps",
+                "label": "فم"
+            },
+            {
+                "id": "s_cat_b_44",
+                "word": "s_word_b_44",
+                "category": "corps",
+                "label": "وذن"
+            },
+            {
+                "id": "s_cat_b_45",
+                "word": "s_word_b_45",
+                "category": "corps",
+                "label": "يد"
+            }
         ],
-        docx_rich: [
-            { id: 'r_cat_r_sch_1', word: 'r_9lam', category: 'ecole', label: 'قلم' },
-            { id: 'r_cat_r_sch_2', word: 'r_kartaba', category: 'ecole', label: 'كرطابة' },
-            { id: 'r_cat_r_sch_3', word: 'r_tabachir', category: 'ecole', label: 'طباشير' },
-            { id: 'r_cat_r_sch_4', word: 'r_sabboura', category: 'ecole', label: 'صبورة' },
-            { id: 'r_cat_b_home_3', word: 'r_tawla_rich', category: 'ecole', label: 'طاولة' },
-            { id: 'r_cat_b_home_2', word: 'r_korsi_rich', category: 'ecole', label: 'كرسي' },
-            { id: 'r_cat_b_body_5', word: 'r_saguine', category: 'corps', label: 'ساقين' },
-            { id: 'r_cat_b_body_6', word: 'r_ch3arich', category: 'corps', label: 'شعر' },
-            { id: 'r_cat_b_body_2', word: 'r_3inin', category: 'corps', label: 'عينين' },
-            { id: 'r_cat_b_body_3', word: 'r_khcham_rich', category: 'corps', label: 'خشم' },
-            { id: 'r_cat_r_anim_1', word: 'r_sardouk', category: 'animaux', label: 'سردوك' },
-            { id: 'r_cat_r_anim_2', word: 'r_3asfour', category: 'animaux', label: 'عصفور' },
-            { id: 'r_cat_r_anim_3', word: 'r_3allouch', category: 'animaux', label: 'علوش' },
-            { id: 'r_cat_r_anim_4', word: 'r_dhebena', category: 'animaux', label: 'ذبانة' },
-            { id: 'r_cat_r_anim_5', word: 'r_zrafa', category: 'animaux', label: 'زرافة' },
-            { id: 'r_cat_r_clo_1', word: 'r_sabbat', category: 'vetements', label: 'صباط' },
-            { id: 'r_cat_r_clo_2', word: 'r_kalchita', category: 'vetements', label: 'كلسيطة' },
-            { id: 'r_cat_r_clo_3', word: 'r_maryoul', category: 'vetements', label: 'مريول' },
-            { id: 'r_cat_r_clo_4', word: 'r_chappeau', category: 'vetements', label: 'شابو' },
-            { id: 'r_cat_r_clo_5', word: 'r_serwel', category: 'vetements', label: 'سروال' },
-            { id: 'r_cat_r_hom_1', word: 'r_sala', category: 'maison', label: 'صالون' },
-            { id: 'r_cat_r_hom_2', word: 'r_farch', category: 'maison', label: 'فرش' },
-            { id: 'r_cat_r_hom_3', word: 'r_kouzina', category: 'maison', label: 'كوزينة' },
-            { id: 'r_cat_r_hom_4', word: 'r_talvza', category: 'maison', label: 'تلفزة' },
-            { id: 'r_cat_r_hom_5', word: 'r_frigidaire', category: 'maison', label: 'فريجيدار' },
-            { id: 'r_cat_r_food_1', word: 'r_couscous', category: 'alimentation', label: 'سكسي' },
-            { id: 'r_cat_r_food_2', word: 'r_ma9rouna', category: 'alimentation', label: 'مقرونة' },
-            { id: 'r_cat_r_food_3', word: 'r_lablabi', category: 'alimentation', label: 'لبلابي' },
-            { id: 'r_cat_r_food_4', word: 'r_casse_croute', category: 'alimentation', label: 'كسكروت' }
+        "docx_rich": [
+            {
+                "id": "s_cat_r_0",
+                "word": "s_word_r_0",
+                "category": "maison",
+                "label": "تلفزة"
+            },
+            {
+                "id": "s_cat_r_1",
+                "word": "s_word_r_1",
+                "category": "maison",
+                "label": "صالة"
+            },
+            {
+                "id": "s_cat_r_2",
+                "word": "s_word_r_2",
+                "category": "maison",
+                "label": "فرش"
+            },
+            {
+                "id": "s_cat_r_3",
+                "word": "s_word_r_3",
+                "category": "maison",
+                "label": "فريجيدار"
+            },
+            {
+                "id": "s_cat_r_4",
+                "word": "s_word_r_4",
+                "category": "maison",
+                "label": "كوزينة"
+            },
+            {
+                "id": "s_cat_r_5",
+                "word": "s_word_r_5",
+                "category": "alimentation",
+                "label": "كسكروت"
+            },
+            {
+                "id": "s_cat_r_6",
+                "word": "s_word_r_6",
+                "category": "alimentation",
+                "label": "كسكسي"
+            },
+            {
+                "id": "s_cat_r_7",
+                "word": "s_word_r_7",
+                "category": "alimentation",
+                "label": "لبلابي"
+            },
+            {
+                "id": "s_cat_r_8",
+                "word": "s_word_r_8",
+                "category": "alimentation",
+                "label": "مقرونة"
+            },
+            {
+                "id": "s_cat_r_9",
+                "word": "s_word_r_9",
+                "category": "animaux",
+                "label": "سردوك"
+            },
+            {
+                "id": "s_cat_r_10",
+                "word": "s_word_r_10",
+                "category": "animaux",
+                "label": "عصفور"
+            },
+            {
+                "id": "s_cat_r_11",
+                "word": "s_word_r_11",
+                "category": "animaux",
+                "label": "علوش"
+            },
+            {
+                "id": "s_cat_r_12",
+                "word": "s_word_r_12",
+                "category": "animaux",
+                "label": "غزالة"
+            },
+            {
+                "id": "s_cat_r_13",
+                "word": "s_word_r_13",
+                "category": "animaux",
+                "label": "كلب"
+            },
+            {
+                "id": "s_cat_r_14",
+                "word": "s_word_r_14",
+                "category": "ecole",
+                "label": "سبورة"
+            },
+            {
+                "id": "s_cat_r_15",
+                "word": "s_word_r_15",
+                "category": "ecole",
+                "label": "طاولة"
+            },
+            {
+                "id": "s_cat_r_16",
+                "word": "s_word_r_16",
+                "category": "ecole",
+                "label": "طباشير"
+            },
+            {
+                "id": "s_cat_r_17",
+                "word": "s_word_r_17",
+                "category": "ecole",
+                "label": "قلم"
+            },
+            {
+                "id": "s_cat_r_18",
+                "word": "s_word_r_18",
+                "category": "ecole",
+                "label": "كرسي"
+            },
+            {
+                "id": "s_cat_r_19",
+                "word": "s_word_r_19",
+                "category": "corps",
+                "label": "خشم"
+            },
+            {
+                "id": "s_cat_r_20",
+                "word": "s_word_r_20",
+                "category": "corps",
+                "label": "شعر"
+            },
+            {
+                "id": "s_cat_r_21",
+                "word": "s_word_r_21",
+                "category": "corps",
+                "label": "عينين"
+            },
+            {
+                "id": "s_cat_r_22",
+                "word": "s_word_r_22",
+                "category": "corps",
+                "label": "فم"
+            },
+            {
+                "id": "s_cat_r_23",
+                "word": "s_word_r_23",
+                "category": "corps",
+                "label": "يدين"
+            },
+            {
+                "id": "s_cat_r_24",
+                "word": "s_word_r_24",
+                "category": "vetements",
+                "label": "سروال"
+            },
+            {
+                "id": "s_cat_r_25",
+                "word": "s_word_r_25",
+                "category": "vetements",
+                "label": "صباط"
+            },
+            {
+                "id": "s_cat_r_26",
+                "word": "s_word_r_26",
+                "category": "vetements",
+                "label": "كلسيطة"
+            },
+            {
+                "id": "s_cat_r_27",
+                "word": "s_word_r_27",
+                "category": "vetements",
+                "label": "مريول"
+            },
+            {
+                "id": "s_cat_r_28",
+                "word": "s_word_r_28",
+                "category": "vetements",
+                "label": "مظلة"
+            }
         ]
     },
-
-    // Activity 1: Discrimination
-    discrimination: {
-        base: {
-            'b-m': {
-                target_1: 'b',
-                target_2: 'm',
-                words: [
-                    // /B/ words
-                    { id: 'd_b_1', word: 'beb', phoneme: 'b', label: 'باب' },
-                    { id: 'd_b_2', word: 'baba', phoneme: 'b', label: 'بابا' },
-                    { id: 'd_b_3', word: 'batta', phoneme: 'b', label: 'بطة' },
-                    { id: 'd_b_4', word: 'bit', phoneme: 'b', label: 'بيت' },
-                    { id: 'd_b_5', word: 'b3id', phoneme: 'b', label: 'بعيد' },
-                    { id: 'd_b_6', word: 'bouma', phoneme: 'b', label: 'بومة' },
-                    { id: 'd_b_7', word: 'bagra', phoneme: 'b', label: 'بقرة' },
-                    { id: 'd_b_8', word: 'batata', phoneme: 'b', label: 'بطاطا' },
-                    { id: 'd_b_9', word: 'bniya', phoneme: 'b', label: 'بنية' },
-                    { id: 'd_b_10', word: 'bsol', phoneme: 'b', label: 'بصل' },
-                    // /M/ words
-                    { id: 'd_m_1', word: 'mama', phoneme: 'm', label: 'ماما' },
-                    { id: 'd_m_2', word: 'me3', phoneme: 'm', label: 'ماء' },
-                    { id: 'd_m_3', word: 'mouz', phoneme: 'm', label: 'موز' },
-                    { id: 'd_m_4', word: 'mel7', phoneme: 'm', label: 'ملح' },
-                    { id: 'd_m_5', word: 'makteb', phoneme: 'm', label: 'مكتب' },
-                    { id: 'd_m_6', word: 'madrasa', phoneme: 'm', label: 'مدرسة' },
-                    { id: 'd_m_7', word: 'moghrfa', phoneme: 'm', label: 'مغرفة' },
-                    { id: 'd_m_8', word: 'mofta7', phoneme: 'm', label: 'مفتاح' },
-                    { id: 'd_m_9', word: 'mkhadda', phoneme: 'm', label: 'مخدة' },
-                    { id: 'd_m_10', word: 'ma3joun', phoneme: 'm', label: 'معجون' },
+    "discrimination": {
+        "base": {
+            "b-m": {
+                "target_1": "ب",
+                "target_2": "م",
+                "words": [
+                    {
+                        "id": "d_b_0",
+                        "word": "d_word_b_0",
+                        "phoneme": "ب",
+                        "label": "باب"
+                    },
+                    {
+                        "id": "d_b_1",
+                        "word": "d_word_b_1",
+                        "phoneme": "ب",
+                        "label": "بانان"
+                    },
+                    {
+                        "id": "d_b_2",
+                        "word": "d_word_b_2",
+                        "phoneme": "ب",
+                        "label": "بحر"
+                    },
+                    {
+                        "id": "d_b_3",
+                        "word": "d_word_b_3",
+                        "phoneme": "ب",
+                        "label": "بسكلات"
+                    },
+                    {
+                        "id": "d_b_4",
+                        "word": "d_word_b_4",
+                        "phoneme": "ب",
+                        "label": "بصل"
+                    },
+                    {
+                        "id": "d_b_5",
+                        "word": "d_word_b_5",
+                        "phoneme": "ب",
+                        "label": "بطاطا"
+                    },
+                    {
+                        "id": "d_b_6",
+                        "word": "d_word_b_6",
+                        "phoneme": "ب",
+                        "label": "بطة"
+                    },
+                    {
+                        "id": "d_b_7",
+                        "word": "d_word_b_7",
+                        "phoneme": "ب",
+                        "label": "بقرة"
+                    },
+                    {
+                        "id": "d_b_8",
+                        "word": "d_word_b_8",
+                        "phoneme": "ب",
+                        "label": "بنية"
+                    },
+                    {
+                        "id": "d_b_9",
+                        "word": "d_word_b_9",
+                        "phoneme": "ب",
+                        "label": "بومة"
+                    },
+                    {
+                        "id": "d_b_10",
+                        "word": "d_word_b_10",
+                        "phoneme": "م",
+                        "label": "ماء"
+                    },
+                    {
+                        "id": "d_b_11",
+                        "word": "d_word_b_11",
+                        "phoneme": "م",
+                        "label": "مثلث"
+                    },
+                    {
+                        "id": "d_b_12",
+                        "word": "d_word_b_12",
+                        "phoneme": "م",
+                        "label": "مخدة"
+                    },
+                    {
+                        "id": "d_b_13",
+                        "word": "d_word_b_13",
+                        "phoneme": "م",
+                        "label": "مدرسة"
+                    },
+                    {
+                        "id": "d_b_14",
+                        "word": "d_word_b_14",
+                        "phoneme": "م",
+                        "label": "مراية"
+                    },
+                    {
+                        "id": "d_b_15",
+                        "word": "d_word_b_15",
+                        "phoneme": "م",
+                        "label": "مربع"
+                    },
+                    {
+                        "id": "d_b_16",
+                        "word": "d_word_b_16",
+                        "phoneme": "م",
+                        "label": "مسطرة"
+                    },
+                    {
+                        "id": "d_b_17",
+                        "word": "d_word_b_17",
+                        "phoneme": "م",
+                        "label": "مشماش"
+                    },
+                    {
+                        "id": "d_b_18",
+                        "word": "d_word_b_18",
+                        "phoneme": "م",
+                        "label": "مغرفة"
+                    },
+                    {
+                        "id": "d_b_19",
+                        "word": "d_word_b_19",
+                        "phoneme": "م",
+                        "label": "مفتاح"
+                    }
                 ]
             },
-            't-d': {
-                target_1: 't',
-                target_2: 'd',
-                words: [
-                    // /T/
-                    { id: 'd_t_1', word: 'toffeh', phoneme: 't', label: 'تفاح' },
-                    { id: 'd_t_2', word: 'tekel', phoneme: 't', label: 'تاكل' },
-                    { id: 'd_t_3', word: 'talvza', phoneme: 't', label: 'تلفزة' },
-                    { id: 'd_t_4', word: 'tout', phoneme: 't', label: 'توت' },
-                    { id: 'd_t_5', word: 'tabki', phoneme: 't', label: 'تبكي' },
-                    { id: 'd_t_6', word: 'tal3ab', phoneme: 't', label: 'تلعب' },
-                    { id: 'd_t_7', word: 'trab', phoneme: 't', label: 'تراب' },
-                    { id: 'd_t_8', word: 'tamchi', phoneme: 't', label: 'تمشي' },
-                    { id: 'd_t_9', word: 'tata', phoneme: 't', label: 'تاتا' },
-                    { id: 'd_t_10', word: 'tadh7ak', phoneme: 't', label: 'تضحك' },
-                    // /D/
-                    { id: 'd_d_1', word: 'dar', phoneme: 'd', label: 'دار' },
-                    { id: 'd_d_2', word: 'djaja', phoneme: 'd', label: 'دجاجة' },
-                    { id: 'd_d_3', word: 'della3', phoneme: 'd', label: 'دلاع' },
-                    { id: 'd_d_4', word: 'dwe', phoneme: 'd', label: 'دواء' },
-                    { id: 'd_d_5', word: 'dawra', phoneme: 'd', label: 'دورة' },
-                    { id: 'd_d_6', word: 'dobb', phoneme: 'd', label: 'دب' },
-                    { id: 'd_d_7', word: 'dabbouza', phoneme: 'd', label: 'دبوزة' },
-                    { id: 'd_d_8', word: 'dorji7a', phoneme: 'd', label: 'درجيحة' },
-                    { id: 'd_d_9', word: 'douda', phoneme: 'd', label: 'دودة' },
-                    { id: 'd_d_10', word: 'drouj', phoneme: 'd', label: 'دروج' },
+            "d-t": {
+                "target_1": "د",
+                "target_2": "ت",
+                "words": [
+                    {
+                        "id": "d_b_20",
+                        "word": "d_word_b_20",
+                        "phoneme": "د",
+                        "label": "دار"
+                    },
+                    {
+                        "id": "d_b_21",
+                        "word": "d_word_b_21",
+                        "phoneme": "د",
+                        "label": "دب"
+                    },
+                    {
+                        "id": "d_b_22",
+                        "word": "d_word_b_22",
+                        "phoneme": "د",
+                        "label": "دبوزة"
+                    },
+                    {
+                        "id": "d_b_23",
+                        "word": "d_word_b_23",
+                        "phoneme": "د",
+                        "label": "دجاجة"
+                    },
+                    {
+                        "id": "d_b_24",
+                        "word": "d_word_b_24",
+                        "phoneme": "د",
+                        "label": "درجيحة"
+                    },
+                    {
+                        "id": "d_b_25",
+                        "word": "d_word_b_25",
+                        "phoneme": "د",
+                        "label": "دلاع"
+                    },
+                    {
+                        "id": "d_b_26",
+                        "word": "d_word_b_26",
+                        "phoneme": "د",
+                        "label": "دواء"
+                    },
+                    {
+                        "id": "d_b_27",
+                        "word": "d_word_b_27",
+                        "phoneme": "د",
+                        "label": "دودة"
+                    },
+                    {
+                        "id": "d_b_28",
+                        "word": "d_word_b_28",
+                        "phoneme": "د",
+                        "label": "دورة"
+                    },
+                    {
+                        "id": "d_b_29",
+                        "word": "d_word_b_29",
+                        "phoneme": "ت",
+                        "label": "تاكل"
+                    },
+                    {
+                        "id": "d_b_30",
+                        "word": "d_word_b_30",
+                        "phoneme": "ت",
+                        "label": "تاليفون"
+                    },
+                    {
+                        "id": "d_b_31",
+                        "word": "d_word_b_31",
+                        "phoneme": "ت",
+                        "label": "تبكي"
+                    },
+                    {
+                        "id": "d_b_32",
+                        "word": "d_word_b_32",
+                        "phoneme": "ت",
+                        "label": "تضحك"
+                    },
+                    {
+                        "id": "d_b_33",
+                        "word": "d_word_b_33",
+                        "phoneme": "ت",
+                        "label": "تفاح"
+                    },
+                    {
+                        "id": "d_b_34",
+                        "word": "d_word_b_34",
+                        "phoneme": "ت",
+                        "label": "تلفزة"
+                    },
+                    {
+                        "id": "d_b_35",
+                        "word": "d_word_b_35",
+                        "phoneme": "ت",
+                        "label": "تمر"
+                    },
+                    {
+                        "id": "d_b_36",
+                        "word": "d_word_b_36",
+                        "phoneme": "ت",
+                        "label": "تمشط"
+                    },
+                    {
+                        "id": "d_b_37",
+                        "word": "d_word_b_37",
+                        "phoneme": "ت",
+                        "label": "تنقز"
+                    },
+                    {
+                        "id": "d_b_38",
+                        "word": "d_word_b_38",
+                        "phoneme": "ت",
+                        "label": "توت"
+                    }
                 ]
             }
         },
-        rich: {
-            'ch-j': {
-                target_1: 'ch',
-                target_2: 'j',
-                words: [
-                    // /CH/ (Shin)
-                    { id: 'd_ch_1', word: 'choklata', phoneme: 'ch', label: 'شكلاطة' },
-                    { id: 'd_ch_2', word: 'faracha', phoneme: 'ch', label: 'فراشة' },
-                    { id: 'd_ch_3', word: 'frachia', phoneme: 'ch', label: 'فراشية' },
-                    { id: 'd_ch_4', word: 'frach', phoneme: 'ch', label: 'فرش' },
-                    { id: 'd_ch_5', word: 'chapo', phoneme: 'ch', label: 'شابو' },
-                    { id: 'd_ch_6', word: '3allouch', phoneme: 'ch', label: 'علوش' },
-                    { id: 'd_ch_7', word: 'chajra', phoneme: 'ch', label: 'شجرة' },
-                    { id: 'd_ch_8', word: 'chebbak', phoneme: 'ch', label: 'شباك' },
-                    { id: 'd_ch_9', word: 'mechaya', phoneme: 'ch', label: 'مشاية' },
-                    { id: 'd_ch_10', word: 'chams', phoneme: 'ch', label: 'شمس' },
-                    // /J/ (Jim)
-                    { id: 'd_j_1', word: 'jraya', phoneme: 'j', label: 'جراية' },
-                    { id: 'd_j_2', word: '3ajla', phoneme: 'j', label: 'عجلة' },
-                    { id: 'd_j_3', word: 'frigidaire', phoneme: 'j', label: 'فريجيدار' },
-                    { id: 'd_j_4', word: 'jnina', phoneme: 'j', label: 'جنينة' },
-                    { id: 'd_j_5', word: 'jmal', phoneme: 'j', label: 'جمل' },
-                    { id: 'd_j_6', word: 'sejjada', phoneme: 'j', label: 'سجادة' },
-                    { id: 'd_j_7', word: '7ajra', phoneme: 'j', label: 'حجرة' },
-                    { id: 'd_j_8', word: 'jrada', phoneme: 'j', label: 'جرادة' },
-                    { id: 'd_j_9', word: 'jrida', phoneme: 'j', label: 'جريدة' },
-                    { id: 'd_j_10', word: 'fenjen', phoneme: 'j', label: 'فنجان' },
+        "rich": {
+            "ch-k": {
+                "target_1": "ش",
+                "target_2": "ك",
+                "words": [
+                    {
+                        "id": "d_r_0",
+                        "word": "d_word_r_0",
+                        "phoneme": "ش",
+                        "label": "شابو"
+                    },
+                    {
+                        "id": "d_r_1",
+                        "word": "d_word_r_1",
+                        "phoneme": "ش",
+                        "label": "شارع"
+                    },
+                    {
+                        "id": "d_r_2",
+                        "word": "d_word_r_2",
+                        "phoneme": "ش",
+                        "label": "شباك"
+                    },
+                    {
+                        "id": "d_r_3",
+                        "word": "d_word_r_3",
+                        "phoneme": "ش",
+                        "label": "شجرة"
+                    },
+                    {
+                        "id": "d_r_4",
+                        "word": "d_word_r_4",
+                        "phoneme": "ش",
+                        "label": "شربة"
+                    },
+                    {
+                        "id": "d_r_5",
+                        "word": "d_word_r_5",
+                        "phoneme": "ش",
+                        "label": "شكلاطة"
+                    },
+                    {
+                        "id": "d_r_6",
+                        "word": "d_word_r_6",
+                        "phoneme": "ش",
+                        "label": "شمس"
+                    },
+                    {
+                        "id": "d_r_7",
+                        "word": "d_word_r_7",
+                        "phoneme": "ش",
+                        "label": "شمعة"
+                    },
+                    {
+                        "id": "d_r_8",
+                        "word": "d_word_r_8",
+                        "phoneme": "ش",
+                        "label": "شورت"
+                    },
+                    {
+                        "id": "d_r_9",
+                        "word": "d_word_r_9",
+                        "phoneme": "ش",
+                        "label": "شيبس"
+                    },
+                    {
+                        "id": "d_r_10",
+                        "word": "d_word_r_10",
+                        "phoneme": "ك",
+                        "label": "كاس"
+                    },
+                    {
+                        "id": "d_r_11",
+                        "word": "d_word_r_11",
+                        "phoneme": "ك",
+                        "label": "كاسكات"
+                    },
+                    {
+                        "id": "d_r_12",
+                        "word": "d_word_r_12",
+                        "phoneme": "ك",
+                        "label": "كراسة"
+                    },
+                    {
+                        "id": "d_r_13",
+                        "word": "d_word_r_13",
+                        "phoneme": "ك",
+                        "label": "كرافات"
+                    },
+                    {
+                        "id": "d_r_14",
+                        "word": "d_word_r_14",
+                        "phoneme": "ك",
+                        "label": "كرسي"
+                    },
+                    {
+                        "id": "d_r_15",
+                        "word": "d_word_r_15",
+                        "phoneme": "ك",
+                        "label": "كسكروت"
+                    },
+                    {
+                        "id": "d_r_16",
+                        "word": "d_word_r_16",
+                        "phoneme": "ك",
+                        "label": "كشكول"
+                    },
+                    {
+                        "id": "d_r_17",
+                        "word": "d_word_r_17",
+                        "phoneme": "ك",
+                        "label": "كلب"
+                    },
+                    {
+                        "id": "d_r_18",
+                        "word": "d_word_r_18",
+                        "phoneme": "ك",
+                        "label": "كلسيطة"
+                    },
+                    {
+                        "id": "d_r_19",
+                        "word": "d_word_r_19",
+                        "phoneme": "ك",
+                        "label": "كورة"
+                    }
                 ]
             },
-            'k-g': {
-                target_1: 'k',
-                target_2: 'g',
-                words: [
-                    // /K/
-                    { id: 'd_k_1', word: 'choklata', phoneme: 'k', label: 'شكلاطة' },
-                    { id: 'd_k_2', word: 'fekia', phoneme: 'k', label: 'فاكية' },
-                    { id: 'd_k_3', word: 'cravate', phoneme: 'k', label: 'كرافات' },
-                    { id: 'd_k_4', word: 'kaskrout', phoneme: 'k', label: 'كسكروت' },
-                    { id: 'd_k_5', word: 'kalchita', phoneme: 'k', label: 'كلسيطة' },
-                    { id: 'd_k_6', word: 'kaskette', phoneme: 'k', label: 'كاسكات' },
-                    { id: 'd_k_7', word: 'sardouk', phoneme: 'k', label: 'سردوك' },
-                    { id: 'd_k_8', word: 'markez', phoneme: 'k', label: 'مركز' },
-                    { id: 'd_k_9', word: 'korsi', phoneme: 'k', label: 'كرسي' },
-                    { id: 'd_k_10', word: 'koura', phoneme: 'k', label: 'كورة' },
-                    // /G/ (Generated)
-                    { id: 'd_g_1', word: 'gatoussa', phoneme: 'g', label: 'قطوسة' },
-                    { id: 'd_g_2', word: 'gamra', phoneme: 'g', label: 'قمرة' },
-                    { id: 'd_g_3', word: 'gazouz', phoneme: 'g', label: 'قازوز' },
-                    { id: 'd_g_4', word: 'gitoune', phoneme: 'g', label: 'قيتون' },
-                    { id: 'd_g_5', word: 'gme7', phoneme: 'g', label: 'قمح' },
-                    { id: 'd_g_6', word: 'gonnaria', phoneme: 'g', label: 'قنارية' },
-                    { id: 'd_g_7', word: 'guidon', phoneme: 'g', label: 'قيدون' },
-                    { id: 'd_g_8', word: 'gaz', phoneme: 'g', label: 'غاز' },
-                    { id: 'd_g_9', word: 'glace', phoneme: 'g', label: 'قلاص' },
-                    { id: 'd_g_10', word: 'gomme', phoneme: 'g', label: 'قوم' },
-                ]
-            },
-            'f-v': {
-                target_1: 'f',
-                target_2: 'v',
-                words: [
-                    // /F/
-                    { id: 'd_f_1', word: 'fenjen', phoneme: 'f', label: 'فنجان' },
-                    { id: 'd_f_2', word: 'faracha', phoneme: 'f', label: 'فراشة' },
-                    { id: 'd_f_3', word: 'frachia', phoneme: 'f', label: 'فراشية' },
-                    { id: 'd_f_4', word: 'fekia', phoneme: 'f', label: 'فاكية' },
-                    { id: 'd_f_5', word: 'felfel', phoneme: 'f', label: 'فلفل' },
-                    { id: 'd_f_6', word: 'frigidaire', phoneme: 'f', label: 'فريجيدار' },
-                    { id: 'd_f_7', word: 'frach', phoneme: 'f', label: 'فرش' },
-                    { id: 'd_f_8', word: 'fil', phoneme: 'f', label: 'فيل' },
-                    { id: 'd_f_9', word: 'far7an', phoneme: 'f', label: 'فرحان' },
-                    { id: 'd_f_10', word: 'ftira', phoneme: 'f', label: 'فطيرة' },
-                    // /V/ (Generated)
-                    { id: 'd_v_1', word: 'valise', phoneme: 'v', label: 'فاليز' },
-                    { id: 'd_v_2', word: 'veste', phoneme: 'v', label: 'فاست' },
-                    { id: 'd_v_3', word: 'vaza', phoneme: 'v', label: 'فازة' },
-                    { id: 'd_v_4', word: 'vitrine', phoneme: 'v', label: 'فيترينة' },
-                    { id: 'd_v_5', word: 'volant', phoneme: 'v', label: 'فولون' },
-                    { id: 'd_v_6', word: 'virage', phoneme: 'v', label: 'فيراج' },
-                    { id: 'd_v_7', word: 'video', phoneme: 'v', label: 'فيديو' },
-                    { id: 'd_v_8', word: 'vaccin', phoneme: 'v', label: 'فكسان' },
-                    { id: 'd_v_9', word: 'vanille', phoneme: 'v', label: 'فانيليا' },
-                    { id: 'd_v_10', word: 'voyage', phoneme: 'v', label: 'فواياج' },
-                ]
-            },
-            'kh-h': {
-                target_1: 'kh',
-                target_2: 'h',
-                words: [
-                    // /KH/
-                    { id: 'd_kh_1', word: 'khzona', phoneme: 'kh', label: 'خزانة' },
-                    { id: 'd_kh_2', word: 'khyata', phoneme: 'kh', label: 'خياطة' },
-                    { id: 'd_kh_3', word: 'mloukhia', phoneme: 'kh', label: 'ملوخية' },
-                    { id: 'd_kh_4', word: 'khobza', phoneme: 'kh', label: 'خبزة' },
-                    { id: 'd_kh_5', word: 'khodhra', phoneme: 'kh', label: 'خضرة' },
-                    { id: 'd_kh_6', word: 'khatem', phoneme: 'kh', label: 'خاتم' },
-                    { id: 'd_kh_7', word: 'khobz', phoneme: 'kh', label: 'خبز' },
-                    { id: 'd_kh_8', word: 'khit', phoneme: 'kh', label: 'خيط' },
-                    { id: 'd_kh_9', word: 'khoukha', phoneme: 'kh', label: 'خوخة' },
-                    { id: 'd_kh_10', word: 'khedma', phoneme: 'kh', label: 'خدمة' },
-                    // /H/ (Generated)
-                    { id: 'd_h_1', word: 'hmama', phoneme: 'h', label: 'حمامة' },
-                    { id: 'd_h_2', word: 'hlel', phoneme: 'h', label: 'هلال' },
-                    { id: 'd_h_3', word: 'hedya', phoneme: 'h', label: 'هدية' },
-                    { id: 'd_h_4', word: 'houch', phoneme: 'h', label: 'حوش' },
-                    { id: 'd_h_5', word: 'hawa', phoneme: 'h', label: 'هواء' },
-                    { id: 'd_h_6', word: 'href', phoneme: 'h', label: 'حراف' },
-                    { id: 'd_h_7', word: 'hram', phoneme: 'h', label: 'هرم' },
-                    { id: 'd_h_8', word: 'hudhud', phoneme: 'h', label: 'هدهد' },
-                    { id: 'd_h_9', word: 'hibou', phoneme: 'h', label: 'هيبو' },
-                    { id: 'd_h_10', word: 'harb', phoneme: 'h', label: 'هرب' },
+            "f-kh": {
+                "target_1": "ف",
+                "target_2": "خ",
+                "words": [
+                    {
+                        "id": "d_r_20",
+                        "word": "d_word_r_20",
+                        "phoneme": "ف",
+                        "label": "فراز"
+                    },
+                    {
+                        "id": "d_r_21",
+                        "word": "d_word_r_21",
+                        "phoneme": "ف",
+                        "label": "فراشة"
+                    },
+                    {
+                        "id": "d_r_22",
+                        "word": "d_word_r_22",
+                        "phoneme": "ف",
+                        "label": "فرحان"
+                    },
+                    {
+                        "id": "d_r_23",
+                        "word": "d_word_r_23",
+                        "phoneme": "ف",
+                        "label": "فلفل"
+                    },
+                    {
+                        "id": "d_r_24",
+                        "word": "d_word_r_24",
+                        "phoneme": "ف",
+                        "label": "فم"
+                    },
+                    {
+                        "id": "d_r_25",
+                        "word": "d_word_r_25",
+                        "phoneme": "ف",
+                        "label": "فنجان"
+                    },
+                    {
+                        "id": "d_r_26",
+                        "word": "d_word_r_26",
+                        "phoneme": "ف",
+                        "label": "فور"
+                    },
+                    {
+                        "id": "d_r_27",
+                        "word": "d_word_r_27",
+                        "phoneme": "ف",
+                        "label": "فولارا"
+                    },
+                    {
+                        "id": "d_r_28",
+                        "word": "d_word_r_28",
+                        "phoneme": "ف",
+                        "label": "فيل"
+                    },
+                    {
+                        "id": "d_r_29",
+                        "word": "d_word_r_29",
+                        "phoneme": "ف",
+                        "label": "مفتاح"
+                    },
+                    {
+                        "id": "d_r_30",
+                        "word": "d_word_r_30",
+                        "phoneme": "خ",
+                        "label": "خاتم"
+                    },
+                    {
+                        "id": "d_r_31",
+                        "word": "d_word_r_31",
+                        "phoneme": "خ",
+                        "label": "خبز"
+                    },
+                    {
+                        "id": "d_r_32",
+                        "word": "d_word_r_32",
+                        "phoneme": "خ",
+                        "label": "خزانة"
+                    },
+                    {
+                        "id": "d_r_33",
+                        "word": "d_word_r_33",
+                        "phoneme": "خ",
+                        "label": "خس"
+                    },
+                    {
+                        "id": "d_r_34",
+                        "word": "d_word_r_34",
+                        "phoneme": "خ",
+                        "label": "خشم"
+                    },
+                    {
+                        "id": "d_r_35",
+                        "word": "d_word_r_35",
+                        "phoneme": "خ",
+                        "label": "خضرة"
+                    },
+                    {
+                        "id": "d_r_36",
+                        "word": "d_word_r_36",
+                        "phoneme": "خ",
+                        "label": "خوخ"
+                    },
+                    {
+                        "id": "d_r_37",
+                        "word": "d_word_r_37",
+                        "phoneme": "خ",
+                        "label": "خيار"
+                    },
+                    {
+                        "id": "d_r_38",
+                        "word": "d_word_r_38",
+                        "phoneme": "خ",
+                        "label": "خياطة"
+                    },
+                    {
+                        "id": "d_r_39",
+                        "word": "d_word_r_39",
+                        "phoneme": "خ",
+                        "label": "خيط"
+                    }
                 ]
             }
         }
