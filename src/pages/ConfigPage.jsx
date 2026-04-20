@@ -84,7 +84,7 @@ const ConfigPage = () => {
                             ) : (
                                 <>
                                     <option value="ch-k">ʃ vs ʒ (ش - ج)</option>
-                                    <option value="f-kh">s vs z (س - ز)</option>
+                                    <option value="f-kh">s vs z/ (س-ز)</option>
                                 </>
                             )}
                         </select>
