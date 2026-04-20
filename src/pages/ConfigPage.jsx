@@ -83,13 +83,17 @@ const ConfigPage = () => {
                                 </>
                             ) : (
                                 <>
-                                    <option value="ch-k">/ch/ vs /k/ (ش - ك)</option>
-                                    <option value="f-kh">/f/ vs /kh/ (ف - خ)</option>
+                                    <option value="ch-k">ʃ vs ʒ (ش - ج)</option>
+                                    <option value="f-kh">s vs z (س - ز)</option>
                                 </>
                             )}
                         </select>
                         <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-                            Exemples: {settings.contrast === 'b-m' ? 'Bab / Mama' : 'Toffeh / Dar'}
+                            Exemples: {
+                                settings.contrast === 'b-m' ? 'Bab / Mama' : 
+                                settings.contrast === 'd-t' ? 'Dar / Toffah' :
+                                settings.contrast === 'ch-k' ? 'Shabou / Jabal' : 'Sattal / Zebda'
+                            }
                         </p>
                     </div>
                 )}
