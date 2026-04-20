@@ -88,13 +88,6 @@ const ConfigPage = () => {
                                 </>
                             )}
                         </select>
-                        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-                            Exemples: {
-                                settings.contrast === 'b-m' ? 'Bab / Mama' : 
-                                settings.contrast === 'd-t' ? 'Dar / Toffah' :
-                                settings.contrast === 'ch-k' ? 'Shabou / Jabal' : 'Sattal / Zebda'
-                            }
-                        </p>
                     </div>
                 )}
 
