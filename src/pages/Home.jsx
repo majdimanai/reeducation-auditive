@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     return (
         <div className="container">
-            <h1 className="title">Rééducation Auditive</h1>
+            <h1 className="title">Ortho-Cochlée</h1>
             <p style={{ fontSize: '1.2rem', marginBottom: '3rem' }}>
                 Bienvenue ! Choisissez une activité pour commencer.
             </p>

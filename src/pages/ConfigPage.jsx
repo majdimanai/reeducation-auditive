@@ -9,8 +9,10 @@ const ConfigPage = () => {
     const navigate = useNavigate();
     const { setConfig, resetGame } = useGame();
 
+    const isAct1 = activityId === '1';
+
     const [settings, setSettings] = useState({
-        vocabLevel: 'docx_simple',
+        vocabLevel: isAct1 ? 'docx_simple' : 'base',
         contrast: 'b-m',
         voiceGender: 'female'
     });
@@ -22,8 +24,6 @@ const ConfigPage = () => {
             setSettings(s => ({ ...s, contrast: 'ch-k' }));
         }
     }, [settings.vocabLevel]);
-
-    const isAct1 = activityId === '1';
 
     const handleStart = () => {
         setConfig({
@@ -51,18 +51,18 @@ const ConfigPage = () => {
                     <label>Niveau de Vocabulaire (Obligatoire)</label>
                     <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
                         <button
-                            className={`btn ${settings.vocabLevel === 'docx_simple' ? 'btn-primary' : 'btn-secondary'}`}
-                            onClick={() => setSettings({ ...settings, vocabLevel: 'docx_simple' })}
-                            style={{ opacity: settings.vocabLevel === 'docx_simple' ? 1 : 0.6 }}
+                            className={`btn ${(settings.vocabLevel === 'docx_simple' || settings.vocabLevel === 'base') ? 'btn-primary' : 'btn-secondary'}`}
+                            onClick={() => setSettings({ ...settings, vocabLevel: isAct1 ? 'docx_simple' : 'base' })}
+                            style={{ opacity: (settings.vocabLevel === 'docx_simple' || settings.vocabLevel === 'base') ? 1 : 0.6 }}
                         >
-                            Base
+                            {isAct1 ? 'Base' : 'Simple'}
                         </button>
                         <button
-                            className={`btn ${settings.vocabLevel === 'docx_rich' ? 'btn-primary' : 'btn-secondary'}`}
-                            onClick={() => setSettings({ ...settings, vocabLevel: 'docx_rich' })}
-                            style={{ opacity: settings.vocabLevel === 'docx_rich' ? 1 : 0.6 }}
+                            className={`btn ${(settings.vocabLevel === 'docx_rich' || settings.vocabLevel === 'rich') ? 'btn-primary' : 'btn-secondary'}`}
+                            onClick={() => setSettings({ ...settings, vocabLevel: isAct1 ? 'docx_rich' : 'rich' })}
+                            style={{ opacity: (settings.vocabLevel === 'docx_rich' || settings.vocabLevel === 'rich') ? 1 : 0.6 }}
                         >
-                            Riche
+                            {isAct1 ? 'Riche' : 'Complexe'}
                         </button>
                     </div>
                 </div>

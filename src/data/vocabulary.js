@@ -1,440 +1,440 @@
 export const VOCABULARY = {
     "categorization": {
         "base": [
-            {
-                "id": "cat_b_0",
-                "word": "cat_b_0",
-                "category": "maison",
-                "label": "باب"
-            },
-            {
-                "id": "cat_b_1",
-                "word": "cat_b_1",
-                "category": "maison",
-                "label": "سرير"
-            },
-            {
-                "id": "cat_b_2",
-                "word": "cat_b_2",
-                "category": "maison",
-                "label": "طاولة"
-            },
-            {
-                "id": "cat_b_3",
-                "word": "cat_b_3",
-                "category": "maison",
-                "label": "غسالة"
-            },
-            {
-                "id": "cat_b_4",
-                "word": "cat_b_4",
-                "category": "maison",
-                "label": "كرسي"
-            },
-            {
-                "id": "cat_b_5",
-                "word": "cat_b_5",
-                "category": "corps",
-                "label": "حواجب"
-            },
-            {
-                "id": "cat_b_6",
-                "word": "cat_b_6",
-                "category": "corps",
-                "label": "خشم"
-            },
-            {
-                "id": "cat_b_7",
-                "word": "cat_b_7",
-                "category": "corps",
-                "label": "ساق"
-            },
-            {
-                "id": "cat_b_8",
-                "word": "cat_b_8",
-                "category": "corps",
-                "label": "شعر"
-            },
-            {
-                "id": "cat_b_9",
-                "word": "cat_b_9",
-                "category": "corps",
-                "label": "عين"
-            },
-            {
-                "id": "cat_b_10",
-                "word": "cat_b_10",
-                "category": "corps",
-                "label": "فم"
-            },
-            {
-                "id": "cat_b_11",
-                "word": "cat_b_11",
-                "category": "corps",
-                "label": "وذن"
-            },
-            {
-                "id": "cat_b_12",
-                "word": "cat_b_12",
-                "category": "corps",
-                "label": "يد"
-            },
-            {
-                "id": "cat_b_13",
-                "word": "cat_b_13",
-                "category": "couleurs",
-                "label": "احمر"
-            },
-            {
-                "id": "cat_b_14",
-                "word": "cat_b_14",
-                "category": "couleurs",
-                "label": "اخضر"
-            },
-            {
-                "id": "cat_b_15",
-                "word": "cat_b_15",
-                "category": "couleurs",
-                "label": "ازرق"
-            },
-            {
-                "id": "cat_b_16",
-                "word": "cat_b_16",
-                "category": "couleurs",
-                "label": "اصفر"
-            },
-            {
-                "id": "cat_b_17",
-                "word": "cat_b_17",
-                "category": "animaux",
-                "label": "ارنب"
-            },
-            {
-                "id": "cat_b_18",
-                "word": "cat_b_18",
-                "category": "animaux",
-                "label": "بطة"
-            },
-            {
-                "id": "cat_b_19",
-                "word": "cat_b_19",
-                "category": "animaux",
-                "label": "بقرة"
-            },
-            {
-                "id": "cat_b_20",
-                "word": "cat_b_20",
-                "category": "animaux",
-                "label": "حوتة"
-            },
-            {
-                "id": "cat_b_21",
-                "word": "cat_b_21",
-                "category": "animaux",
-                "label": "دجاجة"
-            },
-            {
-                "id": "cat_b_22",
-                "word": "cat_b_22",
-                "category": "animaux",
-                "label": "عصفور"
-            },
-            {
-                "id": "cat_b_23",
-                "word": "cat_b_23",
-                "category": "animaux",
-                "label": "قطوسة"
-            },
-            {
-                "id": "cat_b_24",
-                "word": "cat_b_24",
-                "category": "animaux",
-                "label": "كلب"
-            },
-            {
-                "id": "cat_b_25",
-                "word": "cat_b_25",
-                "category": "legumes",
-                "label": "بصل"
-            },
-            {
-                "id": "cat_b_26",
-                "word": "cat_b_26",
-                "category": "legumes",
-                "label": "بطاطا"
-            },
-            {
-                "id": "cat_b_27",
-                "word": "cat_b_27",
-                "category": "legumes",
-                "label": "سفنارية"
-            },
-            {
-                "id": "cat_b_28",
-                "word": "cat_b_28",
-                "category": "legumes",
-                "label": "طماطم"
-            },
-            {
-                "id": "cat_b_29",
-                "word": "cat_b_29",
-                "category": "legumes",
-                "label": "فلفل"
-            },
-            {
-                "id": "cat_b_30",
-                "word": "cat_b_30",
-                "category": "fruits",
-                "label": "بردقان"
-            },
-            {
-                "id": "cat_b_31",
-                "word": "cat_b_31",
-                "category": "fruits",
-                "label": "بنان"
-            },
-            {
-                "id": "cat_b_32",
-                "word": "cat_b_32",
-                "category": "fruits",
-                "label": "تفاح"
-            },
-            {
-                "id": "cat_b_33",
-                "word": "cat_b_33",
-                "category": "fruits",
-                "label": "تمر"
-            },
-            {
-                "id": "cat_b_34",
-                "word": "cat_b_34",
-                "category": "fruits",
-                "label": "توت"
-            },
-            {
-                "id": "cat_b_35",
-                "word": "cat_b_35",
-                "category": "fruits",
-                "label": "دلاع"
-            },
-            {
-                "id": "cat_b_36",
-                "word": "cat_b_36",
-                "category": "alimentation",
-                "label": "حليب"
-            },
-            {
-                "id": "cat_b_37",
-                "word": "cat_b_37",
-                "category": "alimentation",
-                "label": "خبز"
-            },
-            {
-                "id": "cat_b_38",
-                "word": "cat_b_38",
-                "category": "alimentation",
-                "label": "زبدة"
-            },
-            {
-                "id": "cat_b_39",
-                "word": "cat_b_39",
-                "category": "alimentation",
-                "label": "عظم"
-            },
-            {
-                "id": "cat_b_40",
-                "word": "cat_b_40",
-                "category": "alimentation",
-                "label": "ياغورطة"
-            }
+{
+            "id": "cat_b_anim_1",
+            "word": "cat_b_anim_1",
+            "category": "maison",
+            "label": "باب"
+},
+{
+            "id": "cat_b_anim_2",
+            "word": "cat_b_anim_2",
+            "category": "maison",
+            "label": "سرير"
+},
+{
+            "id": "cat_b_anim_3",
+            "word": "cat_b_anim_3",
+            "category": "maison",
+            "label": "طاولة"
+},
+{
+            "id": "cat_b_anim_4",
+            "word": "cat_b_anim_4",
+            "category": "maison",
+            "label": "غسالة"
+},
+{
+            "id": "cat_b_anim_5",
+            "word": "cat_b_anim_5",
+            "category": "maison",
+            "label": "كرسي"
+},
+{
+            "id": "cat_b_anim_6",
+            "word": "cat_b_anim_6",
+            "category": "corps",
+            "label": "حواجب"
+},
+{
+            "id": "cat_b_anim_7",
+            "word": "cat_b_anim_7",
+            "category": "corps",
+            "label": "خشم"
+},
+{
+            "id": "cat_b_anim_8",
+            "word": "cat_b_anim_8",
+            "category": "corps",
+            "label": "ساق"
+},
+{
+            "id": "cat_b_anim_9",
+            "word": "cat_b_anim_9",
+            "category": "corps",
+            "label": "شعر"
+},
+{
+            "id": "cat_b_anim_10",
+            "word": "cat_b_anim_10",
+            "category": "corps",
+            "label": "عين"
+},
+{
+            "id": "cat_b_anim_11",
+            "word": "cat_b_anim_11",
+            "category": "corps",
+            "label": "فم"
+},
+{
+            "id": "cat_b_anim_12",
+            "word": "cat_b_anim_12",
+            "category": "corps",
+            "label": "وذن"
+},
+{
+            "id": "cat_b_anim_13",
+            "word": "cat_b_anim_13",
+            "category": "corps",
+            "label": "يد"
+},
+{
+            "id": "cat_b_anim_14",
+            "word": "cat_b_anim_14",
+            "category": "couleurs",
+            "label": "احمر"
+},
+{
+            "id": "cat_b_anim_15",
+            "word": "cat_b_anim_15",
+            "category": "couleurs",
+            "label": "اخضر"
+},
+{
+            "id": "cat_b_anim_16",
+            "word": "cat_b_anim_16",
+            "category": "couleurs",
+            "label": "ازرق"
+},
+{
+            "id": "cat_b_anim_17",
+            "word": "cat_b_anim_17",
+            "category": "couleurs",
+            "label": "اصفر"
+},
+{
+            "id": "cat_b_anim_18",
+            "word": "cat_b_anim_18",
+            "category": "animaux",
+            "label": "ارنب"
+},
+{
+            "id": "cat_b_anim_19",
+            "word": "cat_b_anim_19",
+            "category": "animaux",
+            "label": "بطة"
+},
+{
+            "id": "cat_b_anim_20",
+            "word": "cat_b_anim_20",
+            "category": "animaux",
+            "label": "بقرة"
+},
+{
+            "id": "cat_b_anim_21",
+            "word": "cat_b_anim_21",
+            "category": "animaux",
+            "label": "حوتة"
+},
+{
+            "id": "cat_b_anim_22",
+            "word": "cat_b_anim_22",
+            "category": "animaux",
+            "label": "دجاجة"
+},
+{
+            "id": "cat_b_anim_23",
+            "word": "cat_b_anim_23",
+            "category": "animaux",
+            "label": "عصفور"
+},
+{
+            "id": "cat_b_anim_24",
+            "word": "cat_b_anim_24",
+            "category": "animaux",
+            "label": "قطوسة"
+},
+{
+            "id": "cat_b_anim_25",
+            "word": "cat_b_anim_25",
+            "category": "animaux",
+            "label": "كلب"
+},
+{
+            "id": "cat_b_anim_26",
+            "word": "cat_b_anim_26",
+            "category": "legumes",
+            "label": "بصل"
+},
+{
+            "id": "cat_b_anim_27",
+            "word": "cat_b_anim_27",
+            "category": "legumes",
+            "label": "بطاطا"
+},
+{
+            "id": "cat_b_anim_28",
+            "word": "cat_b_anim_28",
+            "category": "legumes",
+            "label": "سفنارية"
+},
+{
+            "id": "cat_b_anim_29",
+            "word": "cat_b_anim_29",
+            "category": "legumes",
+            "label": "طماطم"
+},
+{
+            "id": "cat_b_anim_30",
+            "word": "cat_b_anim_30",
+            "category": "legumes",
+            "label": "فلفل"
+},
+{
+            "id": "cat_b_anim_31",
+            "word": "cat_b_anim_31",
+            "category": "fruits",
+            "label": "بردقان"
+},
+{
+            "id": "cat_b_anim_32",
+            "word": "cat_b_anim_32",
+            "category": "fruits",
+            "label": "بنان"
+},
+{
+            "id": "cat_b_anim_33",
+            "word": "cat_b_anim_33",
+            "category": "fruits",
+            "label": "تفاح"
+},
+{
+            "id": "cat_b_anim_34",
+            "word": "cat_b_anim_34",
+            "category": "fruits",
+            "label": "تمر"
+},
+{
+            "id": "cat_b_anim_35",
+            "word": "cat_b_anim_35",
+            "category": "fruits",
+            "label": "توت"
+},
+{
+            "id": "cat_b_anim_36",
+            "word": "cat_b_anim_36",
+            "category": "fruits",
+            "label": "دلاع"
+},
+{
+            "id": "cat_b_anim_37",
+            "word": "cat_b_anim_37",
+            "category": "alimentation",
+            "label": "حليب"
+},
+{
+            "id": "cat_b_anim_38",
+            "word": "cat_b_anim_38",
+            "category": "alimentation",
+            "label": "خبز"
+},
+{
+            "id": "cat_b_anim_39",
+            "word": "cat_b_anim_39",
+            "category": "alimentation",
+            "label": "زبدة"
+},
+{
+            "id": "cat_b_anim_40",
+            "word": "cat_b_anim_40",
+            "category": "alimentation",
+            "label": "عظم"
+},
+{
+            "id": "cat_b_anim_41",
+            "word": "cat_b_anim_41",
+            "category": "alimentation",
+            "label": "ياغورطة"
+}
         ],
         "rich": [
-            {
-                "id": "cat_r_0",
-                "word": "cat_r_0",
-                "category": "maison",
-                "label": "بنك"
-            },
-            {
-                "id": "cat_r_1",
-                "word": "cat_r_1",
-                "category": "maison",
-                "label": "تلفزة"
-            },
-            {
-                "id": "cat_r_2",
-                "word": "cat_r_2",
-                "category": "maison",
-                "label": "زربية"
-            },
-            {
-                "id": "cat_r_3",
-                "word": "cat_r_3",
-                "category": "maison",
-                "label": "فريجيدار"
-            },
-            {
-                "id": "cat_r_4",
-                "word": "cat_r_4",
-                "category": "maison",
-                "label": "فور"
-            },
-            {
-                "id": "cat_r_5",
-                "word": "cat_r_5",
-                "category": "alimentation",
-                "label": "كسكروت"
-            },
-            {
-                "id": "cat_r_6",
-                "word": "cat_r_6",
-                "category": "alimentation",
-                "label": "كسكسي"
-            },
-            {
-                "id": "cat_r_7",
-                "word": "cat_r_7",
-                "category": "alimentation",
-                "label": "لبلابي"
-            },
-            {
-                "id": "cat_r_8",
-                "word": "cat_r_8",
-                "category": "alimentation",
-                "label": "مقرونة"
-            },
-            {
-                "id": "cat_r_9",
-                "word": "cat_r_9",
-                "category": "animaux",
-                "label": "أسد"
-            },
-            {
-                "id": "cat_r_10",
-                "word": "cat_r_10",
-                "category": "animaux",
-                "label": "جمل"
-            },
-            {
-                "id": "cat_r_11",
-                "word": "cat_r_11",
-                "category": "animaux",
-                "label": "حمار"
-            },
-            {
-                "id": "cat_r_12",
-                "word": "cat_r_12",
-                "category": "animaux",
-                "label": "زرافة"
-            },
-            {
-                "id": "cat_r_13",
-                "word": "cat_r_13",
-                "category": "animaux",
-                "label": "سردوك"
-            },
-            {
-                "id": "cat_r_14",
-                "word": "cat_r_14",
-                "category": "animaux",
-                "label": "علوش"
-            },
-            {
-                "id": "cat_r_15",
-                "word": "cat_r_15",
-                "category": "animaux",
-                "label": "قرد"
-            },
-            {
-                "id": "cat_r_16",
-                "word": "cat_r_16",
-                "category": "ecole",
-                "label": "سبورة"
-            },
-            {
-                "id": "cat_r_17",
-                "word": "cat_r_17",
-                "category": "ecole",
-                "label": "طاولة"
-            },
-            {
-                "id": "cat_r_18",
-                "word": "cat_r_18",
-                "category": "ecole",
-                "label": "طباشير"
-            },
-            {
-                "id": "cat_r_19",
-                "word": "cat_r_19",
-                "category": "ecole",
-                "label": "قلم"
-            },
-            {
-                "id": "cat_r_20",
-                "word": "cat_r_20",
-                "category": "ecole",
-                "label": "كرسي"
-            },
-            {
-                "id": "cat_r_21",
-                "word": "cat_r_21",
-                "category": "vetements",
-                "label": "سروال"
-            },
-            {
-                "id": "cat_r_22",
-                "word": "cat_r_22",
-                "category": "vetements",
-                "label": "صباط"
-            },
-            {
-                "id": "cat_r_23",
-                "word": "cat_r_23",
-                "category": "vetements",
-                "label": "كلسيطة"
-            },
-            {
-                "id": "cat_r_24",
-                "word": "cat_r_24",
-                "category": "vetements",
-                "label": "مريول"
-            },
-            {
-                "id": "cat_r_25",
-                "word": "cat_r_25",
-                "category": "vetements",
-                "label": "مظلة"
-            },
-            {
-                "id": "cat_r_26",
-                "word": "cat_r_26",
-                "category": "transport",
-                "label": "بسكلات"
-            },
-            {
-                "id": "cat_r_27",
-                "word": "cat_r_27",
-                "category": "transport",
-                "label": "طيارة"
-            },
-            {
-                "id": "cat_r_28",
-                "word": "cat_r_28",
-                "category": "transport",
-                "label": "كار"
-            },
-            {
-                "id": "cat_r_29",
-                "word": "cat_r_29",
-                "category": "transport",
-                "label": "كرهبة"
-            },
-            {
-                "id": "cat_r_30",
-                "word": "cat_r_30",
-                "category": "transport",
-                "label": "ميترو"
-            }
+{
+            "id": "cat_r_anim_1",
+            "word": "cat_r_anim_1",
+            "category": "maison",
+            "label": "بنك"
+},
+{
+            "id": "cat_r_anim_2",
+            "word": "cat_r_anim_2",
+            "category": "maison",
+            "label": "تلفزة"
+},
+{
+            "id": "cat_r_anim_3",
+            "word": "cat_r_anim_3",
+            "category": "maison",
+            "label": "زربية"
+},
+{
+            "id": "cat_r_anim_4",
+            "word": "cat_r_anim_4",
+            "category": "maison",
+            "label": "فريجيدار"
+},
+{
+            "id": "cat_r_anim_5",
+            "word": "cat_r_anim_5",
+            "category": "maison",
+            "label": "فور"
+},
+{
+            "id": "cat_r_anim_6",
+            "word": "cat_r_anim_6",
+            "category": "alimentation",
+            "label": "كسكروت"
+},
+{
+            "id": "cat_r_anim_7",
+            "word": "cat_r_anim_7",
+            "category": "alimentation",
+            "label": "كسكسي"
+},
+{
+            "id": "cat_r_anim_8",
+            "word": "cat_r_anim_8",
+            "category": "alimentation",
+            "label": "لبلابي"
+},
+{
+            "id": "cat_r_anim_9",
+            "word": "cat_r_anim_9",
+            "category": "alimentation",
+            "label": "مقرونة"
+},
+{
+            "id": "cat_r_anim_10",
+            "word": "cat_r_anim_10",
+            "category": "animaux",
+            "label": "أسد"
+},
+{
+            "id": "cat_r_anim_11",
+            "word": "cat_r_anim_11",
+            "category": "animaux",
+            "label": "جمل"
+},
+{
+            "id": "cat_r_anim_12",
+            "word": "cat_r_anim_12",
+            "category": "animaux",
+            "label": "حمار"
+},
+{
+            "id": "cat_r_anim_13",
+            "word": "cat_r_anim_13",
+            "category": "animaux",
+            "label": "زرافة"
+},
+{
+            "id": "cat_r_anim_14",
+            "word": "cat_r_anim_14",
+            "category": "animaux",
+            "label": "سردوك"
+},
+{
+            "id": "cat_r_anim_15",
+            "word": "cat_r_anim_15",
+            "category": "animaux",
+            "label": "علوش"
+},
+{
+            "id": "cat_r_anim_16",
+            "word": "cat_r_anim_16",
+            "category": "animaux",
+            "label": "قرد"
+},
+{
+            "id": "cat_r_anim_17",
+            "word": "cat_r_anim_17",
+            "category": "ecole",
+            "label": "سبورة"
+},
+{
+            "id": "cat_r_anim_18",
+            "word": "cat_r_anim_18",
+            "category": "ecole",
+            "label": "طاولة"
+},
+{
+            "id": "cat_r_anim_19",
+            "word": "cat_r_anim_19",
+            "category": "ecole",
+            "label": "طباشير"
+},
+{
+            "id": "cat_r_anim_20",
+            "word": "cat_r_anim_20",
+            "category": "ecole",
+            "label": "قلم"
+},
+{
+            "id": "cat_r_anim_21",
+            "word": "cat_r_anim_21",
+            "category": "ecole",
+            "label": "كرسي"
+},
+{
+            "id": "cat_r_anim_22",
+            "word": "cat_r_anim_22",
+            "category": "vetements",
+            "label": "سروال"
+},
+{
+            "id": "cat_r_anim_23",
+            "word": "cat_r_anim_23",
+            "category": "vetements",
+            "label": "صباط"
+},
+{
+            "id": "cat_r_anim_24",
+            "word": "cat_r_anim_24",
+            "category": "vetements",
+            "label": "كلسيطة"
+},
+{
+            "id": "cat_r_anim_25",
+            "word": "cat_r_anim_25",
+            "category": "vetements",
+            "label": "مريول"
+},
+{
+            "id": "cat_r_anim_26",
+            "word": "cat_r_anim_26",
+            "category": "vetements",
+            "label": "مظلة"
+},
+{
+            "id": "cat_r_anim_27",
+            "word": "cat_r_anim_27",
+            "category": "transport",
+            "label": "بسكلات"
+},
+{
+            "id": "cat_r_anim_28",
+            "word": "cat_r_anim_28",
+            "category": "transport",
+            "label": "طيارة"
+},
+{
+            "id": "cat_r_anim_29",
+            "word": "cat_r_anim_29",
+            "category": "transport",
+            "label": "كار"
+},
+{
+            "id": "cat_r_anim_30",
+            "word": "cat_r_anim_30",
+            "category": "transport",
+            "label": "كرهبة"
+},
+{
+            "id": "cat_r_anim_31",
+            "word": "cat_r_anim_31",
+            "category": "transport",
+            "label": "ميترو"
+}
         ],
         "docx_simple": [
             {

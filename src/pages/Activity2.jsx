@@ -25,6 +25,8 @@ const Activity2 = () => {
 
     const [gameState, setGameState] = useState('intro');
 
+    const [levelPool, setLevelPool] = useState([]);
+
     useEffect(() => {
         let pool = [];
         if (config.vocabularyLevel === 'docx_rich') {
@@ -34,10 +36,9 @@ const Activity2 = () => {
         } else if (config.vocabularyLevel === 'rich') {
             pool = [...VOCABULARY.categorization.rich];
         } else {
-
             pool = [...VOCABULARY.categorization.base];
         }
-
+        setLevelPool(pool);
         const shuffled = pool.sort(() => 0.5 - Math.random()).slice(0, 10);
         setItems(shuffled);
     }, [config]);
@@ -52,11 +53,19 @@ const Activity2 = () => {
             'maison': 'منزل', 'couleurs': 'ألوان', 'alimentation': 'مأكولات', 'vetements': 'ملابس', 'ecole': 'مدرسة'
         };
 
-        const internalCats = Object.keys(catMap);
+        // Limit pool to ALL categories present in THIS level's vocabulary
+        const currentLevelCategories = [...new Set(levelPool.map(it => it.category))];
+        
         const correctCat = { id: currentItem.category, label: catMap[currentItem.category] };
 
-        const otherCats = internalCats
-            .filter(c => c !== currentItem.category)
+        const otherCats = currentLevelCategories
+            .filter(c => {
+                if (c === currentItem.category) return false;
+                // Avoid showing fruits and legumes together
+                if (currentItem.category === 'fruits' && c === 'legumes') return false;
+                if (currentItem.category === 'legumes' && c === 'fruits') return false;
+                return true;
+            })
             .sort(() => 0.5 - Math.random())
             .slice(0, 2)
             .map(c => ({ id: c, label: catMap[c] }));
@@ -444,17 +453,20 @@ const Activity2 = () => {
                             maxWidth: '1000px'
                         }}>
                             {options.map(opt => {
+                                const isRich = config.vocabularyLevel.includes('rich');
+                                const catDir = isRich ? 'rich' : 'base';
+                                
                                 const CATEGORY_IMAGES = {
-                                    'maison': `${import.meta.env.BASE_URL}assets/images/categories/maison.jpeg`,
-                                    'alimentation': `${import.meta.env.BASE_URL}assets/images/categories/alimentation.jpeg`,
-                                    'animaux': `${import.meta.env.BASE_URL}assets/images/categories/animaux.jpeg`,
-                                    'fruits': `${import.meta.env.BASE_URL}assets/images/categories/fruits.jpeg`,
-                                    'legumes': `${import.meta.env.BASE_URL}assets/images/categories/legumes.jpeg`,
-                                    'corps': `${import.meta.env.BASE_URL}assets/images/categories/corps.jpeg`,
-                                    'transport': `${import.meta.env.BASE_URL}assets/images/categories/transport.jpeg`,
-                                    'vetements': `${import.meta.env.BASE_URL}assets/images/categories/vetements.jpeg`,
-                                    'couleurs': `${import.meta.env.BASE_URL}assets/images/categories/couleurs.jpeg`,
-                                    'ecole': `${import.meta.env.BASE_URL}assets/images/categories/ecole.jpg`,
+                                    'maison': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/maison.jpg`,
+                                    'alimentation': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/alimentation.jpg`,
+                                    'animaux': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/animaux.jpg`,
+                                    'fruits': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/fruits.png`,
+                                    'legumes': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/legumes.jpg`,
+                                    'corps': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/corps.png`,
+                                    'transport': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/transport.jpg`,
+                                    'vetements': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/vetements.jpg`,
+                                    'couleurs': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/couleurs.jpg`,
+                                    'ecole': `${import.meta.env.BASE_URL}assets/images/categories/${catDir}/ecole.jpg`,
                                 };
                                 const imageSrc = CATEGORY_IMAGES[opt.id];
 
@@ -479,7 +491,6 @@ const Activity2 = () => {
                                                 {getCategoryIcon(opt.id)}
                                             </span>
                                         )}
-                                        <span className="opt-label" style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{opt.label}</span>
                                     </button>
                                 );
                             })}
@@ -487,10 +498,10 @@ const Activity2 = () => {
 
                         <style>{`
                         .options-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-                        .opt-btn { height: 130px; border-width: 2px !important; }
+                        .opt-btn { height: 180px; border-width: 2px !important; }
                         
                         .opt-icon-img {
-                            width: 80px; height: 80px; object-fit: contain; margin-bottom: 0.5rem;
+                            width: 140px; height: 140px; object-fit: contain; margin-bottom: 0.5rem;
                             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
                         }
 
@@ -502,7 +513,7 @@ const Activity2 = () => {
                             }
                             .opt-icon { font-size: 2rem !important; }
                             .opt-icon-img {
-                                width: 55px; height: 55px; margin-bottom: 0.1rem !important;
+                                width: 80px; height: 80px; margin-bottom: 0.1rem !important;
                             }
                             .opt-label { font-size: 0.9rem !important; }
                         }
