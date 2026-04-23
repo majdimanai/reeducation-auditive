@@ -153,12 +153,6 @@ const Activity2 = () => {
         if (gameState !== 'playing' || !currentItem) return;
 
         playSound();
-
-        const interval = setInterval(() => {
-            playSound();
-        }, 5000);
-
-        return () => clearInterval(interval);
     }, [playSound, currentItem, gameState]);
 
     const handleChoice = (catId) => {
@@ -395,10 +389,11 @@ const Activity2 = () => {
                         style={{
                             borderRadius: '50%', width: '60px', height: '60px',
                             padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            marginBottom: '0.5rem', animation: isPlaying ? 'pulse 1s infinite' : 'none'
+                            marginBottom: '0.2rem', animation: isPlaying ? 'pulse 1s infinite' : 'none'
                         }}>
                         <Volume2 size={32} />
                     </button>
+                    <span style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '0.5rem', fontWeight: '500' }}>Répéter le son</span>
 
                         <h2 style={{
                             marginBottom: '0.5rem',

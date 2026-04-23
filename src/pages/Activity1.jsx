@@ -86,13 +86,6 @@ const Activity1 = () => {
 
         setIsPlaying(true);
 
-        if (noiseVolume > 0) {
-            const activeAudio = noiseType === 'background' ? noiseBgRef.current : noiseWhiteRef.current;
-            if (activeAudio && activeAudio.paused) {
-                activeAudio.play().catch(e => console.log("Bg resume failed:", e));
-            }
-        }
-
         const audioPath = `${import.meta.env.BASE_URL}audio/words/${currentItem.id}.mp3`;
         const wordAudio = new Audio(audioPath);
         audioInstanceRef.current = wordAudio; // Track this instance
@@ -126,18 +119,12 @@ const Activity1 = () => {
             console.log("Audio play failed, falling back:", e);
             wordAudio.onerror();
         });
-    }, [currentItem, config, gameState, noiseVolume, noiseType]);
+    }, [currentItem, config, gameState]);
 
     useEffect(() => {
         if (gameState !== 'playing' || !currentItem) return;
 
         playSound();
-
-        const interval = setInterval(() => {
-            playSound();
-        }, 5000);
-
-        return () => clearInterval(interval);
     }, [playSound, currentItem, gameState]);
 
     const handleChoice = (phoneme) => {
@@ -377,10 +364,11 @@ const Activity1 = () => {
                         style={{
                             borderRadius: '50%', width: '60px', height: '60px',
                             padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
-                            marginBottom: '0.5rem', animation: isPlaying ? 'pulse 1s infinite' : 'none'
+                            marginBottom: '0.2rem', animation: isPlaying ? 'pulse 1s infinite' : 'none'
                         }}>
                         <Volume2 size={32} />
                     </button>
+                    <span style={{ fontSize: '0.9rem', color: '#64748b', marginBottom: '0.5rem', fontWeight: '500' }}>Répéter le son</span>
 
                     <h2 style={{
                         marginBottom: '0.5rem',
@@ -413,7 +401,7 @@ const Activity1 = () => {
                                         src={`${import.meta.env.BASE_URL}assets/images/items/${imageFilename}`}
                                         alt={currentItem.label}
                                         style={{
-                                            width: '140px', height: '140px', objectFit: 'contain',
+                                            width: '250px', height: '250px', objectFit: 'contain',
                                             borderRadius: '1rem', boxShadow: '0px 8px 15px rgba(0,0,0,0.15)',
                                             background: 'white', padding: '10px'
                                         }}
